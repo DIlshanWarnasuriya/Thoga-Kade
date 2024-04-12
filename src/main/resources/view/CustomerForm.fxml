@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="730.0" prefWidth="1288.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.thogakade.controller.CustomerFormController">
+   <children>
+      <Region layoutX="-78.0" layoutY="15.0" prefHeight="86.0" prefWidth="714.0" style="-fx-background-radius: 50; -fx-background-color: #2c3e50;" />
+      <Label layoutX="297.0" layoutY="40.0" text="Customer Form" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtCustomerId" layoutX="315.0" layoutY="164.0" prefHeight="31.0" prefWidth="145.0" promptText="Customer ID" unFocusColor="#2c3e50">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXComboBox fx:id="cmbTitle" layoutX="315.0" layoutY="211.0" prefHeight="31.0" prefWidth="198.0" promptText="Title" unFocusColor="#2c3e50">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXComboBox>
+      <JFXTextField fx:id="txtCustomerName" layoutX="315.0" layoutY="260.0" prefHeight="31.0" prefWidth="197.0" promptText="Customer Name" unFocusColor="#2c3e50">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXTextField>
+      <DatePicker fx:id="dpDate" layoutX="315.0" layoutY="314.0" prefHeight="31.0" prefWidth="198.0" promptText="DOB">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </DatePicker>
+      <JFXTextField fx:id="txtSalary" layoutX="316.0" layoutY="362.0" prefHeight="31.0" prefWidth="198.0" promptText="Salary" unFocusColor="#2c3e50">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtAddress" layoutX="315.0" layoutY="412.0" prefHeight="31.0" prefWidth="201.0" promptText="Address" unFocusColor="#2c3e50">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtCity" layoutX="315.0" layoutY="458.0" prefHeight="31.0" prefWidth="198.0" promptText="City" unFocusColor="#2c3e50">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtPostalCode" layoutX="314.0" layoutY="552.0" prefHeight="31.0" prefWidth="198.0" promptText="PostalCode" unFocusColor="#2c3e50">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtProvince" layoutX="314.0" layoutY="506.0" prefHeight="31.0" prefWidth="198.0" promptText="Province" unFocusColor="#2c3e50">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXTextField>
+      <TableView fx:id="table1" layoutX="651.0" layoutY="147.0" prefHeight="246.0" prefWidth="528.0" style="-fx-view-order: descending;">
+        <columns>
+          <TableColumn fx:id="colCustomerId1" prefWidth="64.00003051757812" text="id" />
+          <TableColumn fx:id="colTitle" prefWidth="76.0" text="Title" />
+            <TableColumn fx:id="colName" prefWidth="156.7999267578125" text="Name" />
+            <TableColumn fx:id="colDOB" prefWidth="108.800048828125" text="DOB" />
+            <TableColumn fx:id="colSalary" prefWidth="103.20004882812498" text="Salary" />
+        </columns>
+      </TableView>
+      <TableView fx:id="table2" layoutX="651.0" layoutY="416.0" prefHeight="246.0" prefWidth="528.0">
+         <columns>
+            <TableColumn fx:id="colCustomerId2" prefWidth="62.40008544921875" text="id" />
+            <TableColumn fx:id="colAddress" prefWidth="172.800048828125" text="Address" />
+            <TableColumn fx:id="colCity" prefWidth="100.7999267578125" text="City" />
+            <TableColumn fx:id="colProvince" prefWidth="111.2000732421875" text="Province" />
+            <TableColumn fx:id="colPostalCode" prefWidth="63.199951171875" text="P.Code" />
+         </columns>
+      </TableView>
+      <JFXButton ellipsisString="" layoutX="468.0" layoutY="166.0" onAction="#searchOnAction" prefHeight="23.0" prefWidth="21.0" style="-fx-background-color: #2980b9; -fx-background-radius: 50;" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/Search.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="271.0" layoutY="631.0" onAction="#AddOnAction" prefHeight="31.0" prefWidth="92.0" style="-fx-background-color: #27ae60; -fx-background-radius: 50;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="372.0" layoutY="631.0" onAction="#UpdateOnAction" prefHeight="31.0" prefWidth="92.0" style="-fx-background-color: #2c3e50; -fx-background-radius: 50;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="473.0" layoutY="631.0" onAction="#DeleteOnAction" prefHeight="31.0" prefWidth="92.0" style="-fx-background-color: #c0392b; -fx-background-radius: 50;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Region layoutX="-21.0" prefHeight="730.0" prefWidth="220.0" style="-fx-background-color: #2c3e50;" />
+      <Label layoutX="48.0" layoutY="24.0" text="Thoga" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="53.0" text="Kade" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="35.0" />
+         </font>
+      </Label>
+      <Line endX="113.39999389648438" layoutX="99.0" layoutY="248.0" startX="-100.0" stroke="#f4f4f4" strokeWidth="3.0" />
+      <Line endX="100.0" layoutX="84.0" layoutY="251.0" startX="99.99998474121094" startY="51.00001525878906" stroke="WHITE" visible="false" />
+      <Label fx:id="lblCustomerCount" layoutX="1006.0" layoutY="44.0" text="21 Customers Have" textFill="#2c3e50">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="-4.0" layoutY="195.0" prefHeight="52.0" prefWidth="203.0" style="-fx-background-color: #f4f4f4;" text="Customer Form" textFill="#2c3e50">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <Line endX="113.39999389648438" layoutX="99.0" layoutY="302.0" startX="-100.0" stroke="#f4f4f4" strokeWidth="3.0" />
+      <JFXButton fx:id="btnItemForm" layoutX="-4.0" layoutY="249.0" onAction="#itemOnAction" prefHeight="52.0" prefWidth="203.0" style="-fx-background-color: #2c3e50;" text="Item Form" textFill="#f4f4f4">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Line endX="113.39999389648438" layoutX="99.0" layoutY="356.0" startX="-100.0" stroke="#f4f4f4" strokeWidth="3.0" />
+      <JFXButton fx:id="btnItemForm21" layoutX="-3.0" layoutY="303.0" prefHeight="52.0" prefWidth="202.0" style="-fx-background-color: #2c3e50;" text="Order Form" textFill="#f4f4f4">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>
