@@ -138,7 +138,7 @@
       </Label>
       <Line endX="113.39999389648438" layoutX="99.0" layoutY="248.0" startX="-100.0" stroke="#f4f4f4" strokeWidth="3.0" />
       <Line endX="100.0" layoutX="84.0" layoutY="251.0" startX="99.99998474121094" startY="51.00001525878906" stroke="WHITE" visible="false" />
-      <Label fx:id="lblCustomerCount" layoutX="1006.0" layoutY="44.0" text="21 Customers Have" textFill="#2c3e50">
+      <Label fx:id="lblCustomerCount" layoutX="1006.0" layoutY="44.0" text="00 Customers Have" textFill="#2c3e50">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
