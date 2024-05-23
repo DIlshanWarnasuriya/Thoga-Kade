@@ -172,7 +172,7 @@ public class CustomerFormController implements Initializable {
                     title.put("category", customer.getCustTitle());
 
                     cmbTitle.setValue(null);
-                    cmbTitle.setValue(title.get("category"));
+                    cmbTitle.setPromptText(customer.getCustTitle());
                     txtCustomerName.setText(customer.getCustName());
                     dpDate.setValue(LocalDate.parse(customer.getDOB().toString()));
                     txtSalary.setText("" + customer.getSalary());
@@ -244,13 +244,22 @@ public class CustomerFormController implements Initializable {
 
         try {
             String id = txtCustomerId.getText();
-            String title = cmbTitle.getValue().toString();
+            Object title1 = cmbTitle.getValue();
+            String title2 = cmbTitle.getPromptText();
             String name = txtCustomerName.getText();
             double salary = Double.parseDouble(txtSalary.getText());
             String address = txtAddress.getText();
             String city = txtCity.getText();
             String province = txtProvince.getText();
             String postalCode = txtPostalCode.getText();
+            String title = "";
+
+            if (title1==null){
+                title = title2;
+            }
+            else{
+                title = title1.toString();
+            }
 
             SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
             Date date = format.parse(dpDate.getValue().toString());
@@ -319,6 +328,7 @@ public class CustomerFormController implements Initializable {
     private void clearFields() {
         txtCustomerId.setText("");
         cmbTitle.setValue(null);
+        cmbTitle.setPromptText("Title");
         txtCustomerName.setText("");
         txtSalary.setText("");
         txtAddress.setText("");
@@ -330,13 +340,13 @@ public class CustomerFormController implements Initializable {
 
     private void alertView(String message) {
         Alert alert = new Alert(Alert.AlertType.NONE, message, ButtonType.OK);
-        alert.setTitle("Warning alert");
+        alert.setTitle("Alert");
         alert.showAndWait();
     }
 
     private String confirmAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.NONE, message, ButtonType.OK, ButtonType.CANCEL);
-        alert.setTitle("Warning alert");
+        alert.setTitle("Confirmation alert");
         alert.showAndWait();
         return alert.getResult().getText();
     }
