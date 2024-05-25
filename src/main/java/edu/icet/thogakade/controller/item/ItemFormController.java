@@ -1,4 +1,4 @@
-package edu.icet.thogakade.controller;
+package edu.icet.thogakade.controller.item;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;

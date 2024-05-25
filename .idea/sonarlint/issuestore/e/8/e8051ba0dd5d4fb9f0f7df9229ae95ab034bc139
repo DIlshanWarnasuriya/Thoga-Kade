@@ -1,0 +1,52 @@
+
+	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ÑòÉùú1J$9cb95471-bd7b-40e4-aef3-466519705a5b
+w
+java:S37408"/Provide the parametrized type for this generic.(Ñ™ü®úÿÿÿÿ8ÑòÉùú1J$0d32a574-e0e5-45fa-82bf-32bfcfd44ba6
+w
+java:S3740:"/Provide the parametrized type for this generic.(ŒìÂÿÿÿÿÿ8ÑòÉùú1J$0e58ff7e-2bbc-4fba-bc92-a394d1050079
+w
+java:S3740<"/Provide the parametrized type for this generic.(–­Ñôûÿÿÿÿ8ÑòÉùú1J$032671ae-c45d-48b6-8e86-126e4dae1411
+r
+java:S3740>"/Provide the parametrized type for this generic.(Úİîô8ÑòÉùú1J$fdbef09a-c02f-4ce5-a47e-5f81a40fcbee
+r
+java:S3740@"/Provide the parametrized type for this generic.(Œà•®8ÑòÉùú1J$4c278a93-225c-4b6e-9265-0f4715ca4c5d
+q
+java:S3740B"/Provide the parametrized type for this generic.(à˜…>8ÑòÉùú1J$5ec95c15-f1ac-42c8-b715-bcbfb9384b74
+w
+java:S3740D"/Provide the parametrized type for this generic.(ù‚©·üÿÿÿÿ8ÑòÉùú1J$66407b1e-3dcb-41cd-8266-354be89d3e5f
+r
+java:S3740F"/Provide the parametrized type for this generic.(Úñ’8ÑòÉùú1J$dcc1985c-156e-4a5e-b26d-944329b009e4
+w
+java:S3740H"/Provide the parametrized type for this generic.(ß¢¡şÿÿÿÿ8ÑòÉùú1J$e8e99752-0239-43a2-9888-579664b9b3dc
+r
+java:S3740J"/Provide the parametrized type for this generic.(´°æ¸8ÑòÉùú1J$b9bf058c-88a3-4efc-8db4-3fadff344c35
+w
+java:S3740L"/Provide the parametrized type for this generic.(¾±ƒ‡úÿÿÿÿ8ÑòÉùú1J$11b8de65-0507-42a4-9254-54c4966fe58e
+r
+java:S3740N"/Provide the parametrized type for this generic.(¨¥8ÑòÉùú1J$cd23588b-86f6-472c-abd3-014b7937fc38
+q
+java:S3740P"/Provide the parametrized type for this generic.(ş™ÚZ8ÑòÉùú1J$bad6bec6-362d-4ef6-b1e4-909ef993eab0
+š
+java:S1104$"WMake btnItemForm a static final constant or non-public and provide accessors if needed.(¶ù’ê8ÑòÉùú1J$2415d797-3a0d-426e-b801-45f559b90ffa
+’
+java:S2095s"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(‡ç™8óÉùú1J$2f325bbc-e22f-4f20-bf0e-d224c9832781
+b
+java:S6905s"Don't use the query "SELECT *".(‡ç™8óÉùú1J$37ed0c3a-7d15-46b2-a696-ff1f49f805f8
+‚
+java:S1117v":Rename "table1" which hides the field declared at line 57.(åñ–Šûÿÿÿÿ8óÉùú1J$c14760bb-3a55-4b70-a0f5-b9d8172a7e89
+‚
+java:S1117}":Rename "table2" which hides the field declared at line 69.(‰È„µşÿÿÿÿ8óÉùú1J$1aefe87a-ba64-41c5-9d20-3c9e5351d6dd
+{
+java:S1172‘"2Remove this unused method parameter "actionEvent".(ÌŸúôúÿÿÿÿ8óÉùú1J$ac679dd4-d511-4669-8e28-a16eb05feeb6
+‘	java:S100¯"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê³™…8óÉùú1J$d19c16b0-72b5-46f9-9f12-734803f938df
+v
+java:S1172¯"2Remove this unused method parameter "actionEvent".(Ê³™…8óÉùú1J$1868fb60-fc0a-4d8c-bac4-a061aeaec002
+–	java:S100Ô"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(øì‘Æıÿÿÿÿ8‘óÉùú1J$499155b5-9a9f-48c2-8291-2765d3c7583c
+{
+java:S1172Ô"2Remove this unused method parameter "actionEvent".(øì‘Æıÿÿÿÿ8‘óÉùú1J$435766a3-af76-4974-9be0-013b611f0504
+–	java:S100ü"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìŠ˜Îıÿÿÿÿ8‘óÉùú1J$943f7435-9dff-433f-ada5-a9b4a8d074ed
+{
+java:S1172ü"2Remove this unused method parameter "actionEvent".(ìŠ˜Îıÿÿÿÿ8‘óÉùú1J$c3d3181f-1d91-4710-aa0a-cd20b240c791
+n	java:S106”"+Replace this use of System.out by a logger.(õŒµÔ8‘óÉùú1J$187ee242-7ada-49ee-b6a2-a5f52ee6a928
+u
+java:S1172³"2Remove this unused method parameter "actionEvent".(ÀüÊy8‘óÉùú1J$fc1b33db-d2d5-4337-b327-9dc6785a6f88

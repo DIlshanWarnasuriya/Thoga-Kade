@@ -1,4 +1,4 @@
-package edu.icet.thogakade.controller;
+package edu.icet.thogakade.controller.customer;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -79,7 +79,6 @@ public class CustomerFormController implements Initializable {
     @FXML
     private TableColumn colProvince;
 
-    private Customer customer;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -150,26 +149,12 @@ public class CustomerFormController implements Initializable {
             alertView("Customer Id is Empty. Please Enter Valid Customer Id");
         } else {
             try {
-                Connection connection = DBConnection.getInstance().getConnection();
-                PreparedStatement stm = connection.prepareStatement("SELECT * FROM Customer WHERE CustID = ?");
-                stm.setString(1, cusId);
-                ResultSet res = stm.executeQuery();
-                if (res.next()) {
-                    alertView("Customer Found");
-                    customer = new Customer(
-                            cusId,
-                            res.getString(2),
-                            res.getString(3),
-                            res.getDate(4),
-                            res.getDouble(5),
-                            res.getString(6),
-                            res.getString(7),
-                            res.getString(8),
-                            res.getString(9)
-                    );
+                Customer customer = CustomerController.getInstance().searchCustomer(cusId);
 
-                    HashMap<String, String> title = new HashMap<>();
-                    title.put("category", customer.getCustTitle());
+                if (customer == null) {
+                    new Alert(Alert.AlertType.WARNING, "Customer Id is not found. Please Enter Valid Customer Id", ButtonType.OK).show();
+                } else {
+                    new Alert(Alert.AlertType.INFORMATION, "Customer Found", ButtonType.OK).show();
 
                     cmbTitle.setValue(null);
                     cmbTitle.setPromptText(customer.getCustTitle());
@@ -180,12 +165,9 @@ public class CustomerFormController implements Initializable {
                     txtCity.setText(customer.getCity());
                     txtProvince.setText(customer.getProvince());
                     txtPostalCode.setText(customer.getPostalCode());
-                } else {
-                    alertView("Customer Id is not found. Please Enter Valid Customer Id");
                 }
-
             } catch (SQLException | ClassNotFoundException e) {
-                alertView(e.getMessage());
+                new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK).show();
             }
         }
     }
@@ -210,19 +192,7 @@ public class CustomerFormController implements Initializable {
             } else {
                 Customer customer = new Customer(id, title, name, date, salary, address, city, province, postalCode);
 
-                Connection connection = DBConnection.getInstance().getConnection();
-                PreparedStatement stm = connection.prepareStatement("INSERT INTO Customer VALUES(?,?,?,?,?,?,?,?,?)");
-                stm.setString(1, customer.getCustID());
-                stm.setString(2, customer.getCustTitle());
-                stm.setString(3, customer.getCustName());
-                stm.setObject(4, customer.getDOB());
-                stm.setDouble(5, customer.getSalary());
-                stm.setString(6, customer.getCustAddress());
-                stm.setString(7, customer.getCity());
-                stm.setString(8, customer.getProvince());
-                stm.setString(9, customer.getPostalCode());
-
-                int i = stm.executeUpdate();
+                int i = CustomerController.getInstance().AddCustomer(customer);
 
                 if (i > 0) {
                     alertView("Customer Add Successful");
@@ -239,7 +209,6 @@ public class CustomerFormController implements Initializable {
         }
     }
 
-
     public void UpdateOnAction(ActionEvent actionEvent) {
 
         try {
@@ -254,12 +223,8 @@ public class CustomerFormController implements Initializable {
             String postalCode = txtPostalCode.getText();
             String title = "";
 
-            if (title1==null){
-                title = title2;
-            }
-            else{
-                title = title1.toString();
-            }
+            if (title1 == null) title = title2;
+            else title = title1.toString();
 
             SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
             Date date = format.parse(dpDate.getValue().toString());
@@ -268,19 +233,9 @@ public class CustomerFormController implements Initializable {
                 alertView("Please fill all Fields");
             } else {
                 Customer customer = new Customer(id, title, name, date, salary, address, city, province, postalCode);
-                Connection connection = DBConnection.getInstance().getConnection();
-                PreparedStatement stm = connection.prepareStatement("update Customer set CustTitle=?, CustName=?, DOB=?, salary=?, CustAddress=?, City=?, Province=?, PostalCode=? where CustID=?");
-                stm.setString(1, customer.getCustTitle());
-                stm.setString(2, customer.getCustName());
-                stm.setObject(3, customer.getDOB());
-                stm.setDouble(4, customer.getSalary());
-                stm.setString(5, customer.getCustAddress());
-                stm.setString(6, customer.getCity());
-                stm.setString(7, customer.getProvince());
-                stm.setString(8, customer.getPostalCode());
-                stm.setString(9, id);
 
-                int i = stm.executeUpdate();
+                int i = CustomerController.getInstance().UpdateCustomer(customer, id);
+
                 if (i > 0) {
                     alertView("Customer Update Successful");
                     loadTables();
@@ -300,13 +255,11 @@ public class CustomerFormController implements Initializable {
             alertView("Please Enter valid cistomer id");
         } else {
             try {
-                String responce = confirmAlert("Are you sure to delete this customer");
+                String confirmation = confirmAlert("Are you sure to delete this customer");
 
-                if (responce.equals("OK")) {
-                    Connection connection = DBConnection.getInstance().getConnection();
-                    PreparedStatement stm = connection.prepareStatement("delete from Customer where CustID = ?");
-                    stm.setObject(1, txtCustomerId.getText());
-                    int i = stm.executeUpdate();
+                if (confirmation.equals("OK")) {
+
+                    int i = CustomerController.getInstance().DeleteCustomer(txtCustomerId.getText());
 
                     if (i > 0) {
                         loadTables();

@@ -1,0 +1,18 @@
+
+—
+java:S1104"TMake instance a static final constant or non-public and provide accessors if needed.(ş·Ï8ö´¼ùú1J$a53321ca-dd62-4cf7-abb3-7c0b88599640
+q
+java:S1444".Make this "public static instance" field final(ş·Ï8ö´¼ùú1J$3e8b5bf1-717a-4c00-a375-bec1f1e25d48
+—
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¬ıêèşÿÿÿÿ8ö´¼ùú1J$0aa6fe0e-c0bd-4162-a510-b678262d87a2
+—
+java:S20951"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Û­íåùÿÿÿÿ8ö´¼ùú1J$baa68b3e-3a73-4b09-8ccd-d107a57cb703
+—
+java:S2095B"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(å°ƒÅüÿÿÿÿ8Ğ¿ùú1J$744cef5b-b8f2-4388-a1ee-04939e85df36
+—
+java:S2095R"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ËÛÁ¿ûÿÿÿÿ8ÂªÈùú1J$7242ddbb-f4e5-4543-a95c-4ebeeafa2d0b
+g
+java:S6905"Don't use the query "SELECT *".(¬ıêèşÿÿÿÿ8…µ¼ùú1J$347526ad-e0e0-4bff-80c5-258ecb20032d
+	java:S100."NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œäì£8…µ¼ùú1J$9b49cd20-d35e-4026-a6fe-5ff64cbe4aab
+•	java:S100?"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç¶”üÿÿÿÿ8…µ¼ùú1J$e2ff5b73-f9b4-48bc-b9f3-0b55bb22645c
+•	java:S100P"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’‡¡áÿÿÿÿÿ8Ú¬Çùú1J$75cf2d28-06f4-4d2c-abb9-e49fc1327901
