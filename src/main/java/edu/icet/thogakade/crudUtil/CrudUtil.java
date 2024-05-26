@@ -11,13 +11,13 @@ public class CrudUtil {
 
         Connection connection = DBConnection.getInstance().getConnection();
         PreparedStatement stm = connection.prepareStatement(sql);
-        for (int i=0; i<args.length; i++){
-            stm.setObject(i+1, args[i]);
+        for (int i = 0; i < args.length; i++) {
+            stm.setObject(i + 1, args[i]);
         }
 
-        if (sql.startsWith("SELECT") || sql.startsWith("select")){
+        if (sql.startsWith("SELECT") || sql.startsWith("select")) {
             return (T) stm.executeQuery();
         }
-        return (T) (Boolean) (stm.executeUpdate()>0);
+        return (T) (Boolean) (stm.executeUpdate() > 0);
     }
 }

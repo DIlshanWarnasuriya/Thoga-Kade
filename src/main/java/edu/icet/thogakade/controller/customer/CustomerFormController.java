@@ -3,7 +3,6 @@ package edu.icet.thogakade.controller.customer;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import edu.icet.thogakade.db.DBConnection;
 import edu.icet.thogakade.model.Customer;
 import edu.icet.thogakade.model.tableModel.Table1;
 import edu.icet.thogakade.model.tableModel.Table2;
@@ -18,18 +17,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class CustomerFormController implements Initializable {
@@ -172,7 +167,7 @@ public class CustomerFormController implements Initializable {
         }
     }
 
-    public void AddOnAction(ActionEvent actionEvent) {
+    public void addOnAction(ActionEvent actionEvent) {
 
         try {
             String id = txtCustomerId.getText();
@@ -192,7 +187,7 @@ public class CustomerFormController implements Initializable {
             } else {
                 Customer customer = new Customer(id, title, name, date, salary, address, city, province, postalCode);
 
-                Boolean res = CustomerController.getInstance().addCustomer(customer);
+                boolean res = CustomerController.getInstance().addCustomer(customer);
 
                 if (res) {
                     alertView("Customer Add Successful");
@@ -209,7 +204,7 @@ public class CustomerFormController implements Initializable {
         }
     }
 
-    public void UpdateOnAction(ActionEvent actionEvent) {
+    public void updateOnAction(ActionEvent actionEvent) {
 
         try {
             String id = txtCustomerId.getText();
@@ -234,7 +229,7 @@ public class CustomerFormController implements Initializable {
             } else {
                 Customer customer = new Customer(id, title, name, date, salary, address, city, province, postalCode);
 
-                Boolean res= CustomerController.getInstance().updateCustomer(customer, id);
+                boolean res= CustomerController.getInstance().updateCustomer(customer, id);
 
                 if (res) {
                     alertView("Customer Update Successful");
@@ -249,7 +244,7 @@ public class CustomerFormController implements Initializable {
         }
     }
 
-    public void DeleteOnAction(ActionEvent actionEvent) {
+    public void deleteOnAction(ActionEvent actionEvent) {
 
         if (txtCustomerId.getText().isEmpty()) {
             alertView("Please Enter valid customer id");
@@ -305,7 +300,7 @@ public class CustomerFormController implements Initializable {
 
     public void itemOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) btnItemForm.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/ItemForm.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/ItemForm.fxml")))));
         stage.getIcons().add(new Image("img/Logo.png"));
         stage.setTitle("Thoga Kade");
         stage.show();

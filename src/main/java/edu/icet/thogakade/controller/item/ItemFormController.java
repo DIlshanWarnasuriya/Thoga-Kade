@@ -3,9 +3,7 @@ package edu.icet.thogakade.controller.item;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import edu.icet.thogakade.db.DBConnection;
 import edu.icet.thogakade.model.Item;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,10 +16,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class ItemFormController implements Initializable {
@@ -64,28 +60,11 @@ public class ItemFormController implements Initializable {
         loadTables();
     }
 
-    private void loadTables(){
-        ObservableList<Item> itemList = FXCollections.observableArrayList();
-        int count = 0;
+    private void loadTables() {
         try {
-            Connection connection = DBConnection.getInstance().getConnection();
-            PreparedStatement stm = connection.prepareStatement("select * from Item");
-            ResultSet resultSet = stm.executeQuery();
-
-            while (resultSet.next()){
-
-                Item item = new Item(
-                        resultSet.getString(1),
-                        resultSet.getString(2),
-                        resultSet.getString(3),
-                        resultSet.getDouble(4),
-                        resultSet.getInt(5)
-                );
-                count++;
-                itemList.add(item);
-            }
-            table.setItems(itemList);
-            lblItemCount.setText(count + " Items Have");
+            ObservableList<Item> allItems = ItemController.getInstance().getAllItems();
+            table.setItems(allItems);
+            lblItemCount.setText(allItems.toArray().length + " Items Have");
 
         } catch (SQLException | ClassNotFoundException e) {
             alertView(e.getMessage());
@@ -95,52 +74,99 @@ public class ItemFormController implements Initializable {
     public void searchOnAction(ActionEvent actionEvent) {
         String code = txtCode.getText();
         try {
-            Connection connection = DBConnection.getInstance().getConnection();
-            PreparedStatement stm = connection.prepareStatement("select * from Item where ItemCode = ?");
-            stm.setObject(1, code);
-            ResultSet resultSet = stm.executeQuery();
-            if (resultSet.next()){
-                alertView("Customer Found");
-                Item item = new Item(
-                        resultSet.getString(1),
-                        resultSet.getString(2),
-                        resultSet.getString(3),
-                        resultSet.getDouble(4),
-                        resultSet.getInt(5)
-                );
+            Item item = ItemController.getInstance().searchItem(code);
 
+            if (item != null) {
+                alertView("Item Found");
                 txtDescription.setText(item.getDescription());
                 txtSize.setText(item.getSize());
-                txtPrice.setText(""+item.getPrice());
-                txtQty.setText("Qty - "+item.getQty());
-            }
-            else{
-                alertView("Customer Not Found");
+                txtPrice.setText("" + item.getPrice());
+                txtQty.setText("" + item.getQty());
+            } else {
+                alertView("Item Not Found");
+                clearAll();
             }
         } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
-    public void AddOnAction(ActionEvent actionEvent) {
+    public void addOnAction(ActionEvent actionEvent) {
+        try {
+            int qty = Integer.parseInt(txtQty.getText());
+            double price = Double.parseDouble(txtPrice.getText());
 
+            if (txtCode.getText().isEmpty() || txtDescription.getText().isEmpty() || price <= 0 || qty <= 0 || txtSize.getText().isEmpty()) {
+                new Alert(Alert.AlertType.WARNING, "Fill all textBoxes").show();
+            } else {
+                Item item = new Item(txtCode.getText(), txtDescription.getText(), txtSize.getText(), price, qty);
+                boolean res = ItemController.getInstance().saveItem(item);
+
+                if (res) {
+                    alertView("Item added Successful");
+                    loadTables();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Item added Fail").show();
+                }
+                clearAll();
+            }
+        } catch (RuntimeException e) {
+            new Alert(Alert.AlertType.WARNING, "please Enter valid input").show();
+        } catch (SQLException | ClassNotFoundException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
+    public void updateOnAction(ActionEvent actionEvent) {
+        try {
+            int qty = Integer.parseInt(txtQty.getText());
+            double price = Double.parseDouble(txtPrice.getText());
 
-    public void UpdateOnAction(ActionEvent actionEvent) {
+            if (txtCode.getText().isEmpty() || txtDescription.getText().isEmpty() || price <= 0 || qty <= 0 || txtSize.getText().isEmpty()) {
+                new Alert(Alert.AlertType.WARNING, "Fill all textBoxes").show();
+            } else {
+                Item item = new Item(txtCode.getText(), txtDescription.getText(), txtSize.getText(), price, qty);
+                boolean res = ItemController.getInstance().updateItem(item);
 
+                if (res) {
+                    alertView("Item Update Successful");
+                    loadTables();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Item Update Fail").show();
+                }
+                clearAll();
+            }
+        } catch (RuntimeException e) {
+            new Alert(Alert.AlertType.WARNING, "please Enter valid input").show();
+        } catch (SQLException | ClassNotFoundException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
-    public void DeleteOnAction(ActionEvent actionEvent) {
-
+    public void deleteOnAction(ActionEvent actionEvent) {
+        try {
+            String confirmation = confirmAlert();
+            if (confirmation.equals("OK")) {
+                boolean res = ItemController.getInstance().deleteItem(txtCode.getText());
+                if (res) {
+                    alertView("Item Delete Successful");
+                    loadTables();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Item delete Fail").show();
+                }
+                clearAll();
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
-    public void cutomerOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) btnCustomer.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/CustomerForm.fxml"))));
-        stage.getIcons().add(new Image("img/Logo.png"));
-        stage.setTitle("Thoga Kade");
-        stage.show();
+    private void clearAll() {
+        txtCode.setText("");
+        txtDescription.setText("");
+        txtSize.setText("");
+        txtQty.setText("");
+        txtPrice.setText("");
     }
 
     private void alertView(String message) {
@@ -149,10 +175,19 @@ public class ItemFormController implements Initializable {
         alert.showAndWait();
     }
 
-    private String confirmAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.NONE, message, ButtonType.OK, ButtonType.CANCEL);
+    private String confirmAlert() {
+        Alert alert = new Alert(Alert.AlertType.NONE, "Are you sure to delete this item", ButtonType.OK, ButtonType.CANCEL);
         alert.setTitle("Warning alert");
         alert.showAndWait();
         return alert.getResult().getText();
+    }
+
+
+    public void customerOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) btnCustomer.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/CustomerForm.fxml")))));
+        stage.getIcons().add(new Image("img/Logo.png"));
+        stage.setTitle("Thoga Kade");
+        stage.show();
     }
 }
