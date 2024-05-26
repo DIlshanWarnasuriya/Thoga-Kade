@@ -117,7 +117,7 @@
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnPlaceOrder" layoutX="-3.0" layoutY="158.6" prefHeight="52.0" prefWidth="202.0" style="-fx-background-color: #2c3e50;" text="Place order" textFill="#f4f4f4" AnchorPane.topAnchor="158.6">
+      <JFXButton fx:id="btnPlaceOrder" layoutX="-3.0" layoutY="158.6" onAction="#placeOrderOnAction" prefHeight="52.0" prefWidth="202.0" style="-fx-background-color: #2c3e50;" text="Place order" textFill="#f4f4f4" AnchorPane.topAnchor="158.6">
          <font>
             <Font name="Arial Bold" size="15.0" />
          </font>
@@ -140,7 +140,7 @@
          </cursor>
       </JFXButton>
       <Line endX="113.39999389648438" layoutX="99.0" layoutY="375.0" startX="-100.0" stroke="#f4f4f4" strokeWidth="3.0" />
-      <JFXButton fx:id="btnOrderForm" layoutX="-3.0" layoutY="322.0" prefHeight="52.0" prefWidth="202.0" style="-fx-background-color: #2c3e50;" text="Orders" textFill="#f4f4f4">
+      <JFXButton fx:id="btnOrderForm" layoutX="-3.0" layoutY="322.0" onAction="#OrdersOnAction" prefHeight="52.0" prefWidth="202.0" style="-fx-background-color: #2c3e50;" text="Orders" textFill="#f4f4f4">
          <font>
             <Font name="Arial Bold" size="15.0" />
          </font>

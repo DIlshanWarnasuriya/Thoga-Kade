@@ -28,7 +28,12 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class CustomerFormController implements Initializable {
-    public JFXButton btnItemForm;
+    @FXML
+    private JFXButton btnItemForm;
+    @FXML
+    private JFXButton btnOrders;
+    @FXML
+    private JFXButton btnPlaceOrder;
     @FXML
     private Label lblCustomerCount;
     @FXML
@@ -305,4 +310,16 @@ public class CustomerFormController implements Initializable {
         stage.setTitle("Thoga Kade");
         stage.show();
     }
+    public void placeOrderOnActon(ActionEvent actionEvent) throws IOException  {
+        Stage stage = (Stage) btnPlaceOrder.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/PlaceOrder.fxml")))));
+        stage.getIcons().add(new Image("img/Logo.png"));
+        stage.setTitle("Thoga Kade");
+        stage.show();
+    }
+
+    public void orderOnAction(ActionEvent actionEvent) {
+    }
+
+
 }

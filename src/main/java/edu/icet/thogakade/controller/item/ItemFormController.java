@@ -23,6 +23,12 @@ import java.util.ResourceBundle;
 public class ItemFormController implements Initializable {
 
     @FXML
+    private JFXButton btnOrderForm;
+    @FXML
+    private JFXButton btnItemForm;
+    @FXML
+    private JFXButton btnPlaceOrder;
+    @FXML
     private JFXButton btnCustomer;
     @FXML
     private JFXTextField txtCode;
@@ -189,5 +195,16 @@ public class ItemFormController implements Initializable {
         stage.getIcons().add(new Image("img/Logo.png"));
         stage.setTitle("Thoga Kade");
         stage.show();
+    }
+
+    public void placeOrderOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) btnPlaceOrder.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/PlaceOrder.fxml")))));
+        stage.getIcons().add(new Image("img/Logo.png"));
+        stage.setTitle("Thoga Kade");
+        stage.show();
+    }
+
+    public void OrdersOnAction(ActionEvent actionEvent) {
     }
 }

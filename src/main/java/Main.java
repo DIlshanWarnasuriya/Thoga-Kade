@@ -12,7 +12,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setScene(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/CustomerForm.fxml")))));
+        stage.setScene(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/PlaceOrder.fxml")))));
         stage.getIcons().add(new Image("img/Logo.png"));
         stage.setTitle("Thoga Kade");
         stage.show();
