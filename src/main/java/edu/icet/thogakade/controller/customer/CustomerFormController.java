@@ -192,7 +192,7 @@ public class CustomerFormController implements Initializable {
             } else {
                 Customer customer = new Customer(id, title, name, date, salary, address, city, province, postalCode);
 
-                Boolean res = CustomerController.getInstance().AddCustomer(customer);
+                Boolean res = CustomerController.getInstance().addCustomer(customer);
 
                 if (res) {
                     alertView("Customer Add Successful");
@@ -234,7 +234,7 @@ public class CustomerFormController implements Initializable {
             } else {
                 Customer customer = new Customer(id, title, name, date, salary, address, city, province, postalCode);
 
-                Boolean res= CustomerController.getInstance().UpdateCustomer(customer, id);
+                Boolean res= CustomerController.getInstance().updateCustomer(customer, id);
 
                 if (res) {
                     alertView("Customer Update Successful");
@@ -259,7 +259,7 @@ public class CustomerFormController implements Initializable {
 
                 if (confirmation.equals("OK")) {
 
-                    boolean res = CustomerController.getInstance().DeleteCustomer(txtCustomerId.getText());
+                    boolean res = CustomerController.getInstance().deleteCustomer(txtCustomerId.getText());
 
                     if (res) {
                         loadTables();

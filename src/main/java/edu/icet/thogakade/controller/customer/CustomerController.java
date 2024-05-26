@@ -66,7 +66,7 @@ public class CustomerController implements CustomerService {
         return null;
     }
 
-    public Boolean AddCustomer(Customer customer) throws SQLException, ClassNotFoundException {
+    public Boolean addCustomer(Customer customer) throws SQLException, ClassNotFoundException {
 
         String sql = "INSERT INTO Customer VALUES(?,?,?,?,?,?,?,?,?)";
         return CrudUtil.execute(sql,
@@ -82,7 +82,7 @@ public class CustomerController implements CustomerService {
         );
     }
 
-    public Boolean UpdateCustomer(Customer customer, String id) throws SQLException, ClassNotFoundException {
+    public Boolean updateCustomer(Customer customer, String id) throws SQLException, ClassNotFoundException {
 
         String sql = "update Customer set CustTitle=?, CustName=?, DOB=?, salary=?, CustAddress=?, City=?, Province=?, PostalCode=? where CustID=?";
         return CrudUtil.execute(sql,
@@ -97,7 +97,7 @@ public class CustomerController implements CustomerService {
                 id);
     }
 
-    public Boolean DeleteCustomer(String id) throws SQLException, ClassNotFoundException {
+    public Boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException {
 
         String sql = "delete from Customer where CustID = ?";
         return CrudUtil.execute(sql, id);
