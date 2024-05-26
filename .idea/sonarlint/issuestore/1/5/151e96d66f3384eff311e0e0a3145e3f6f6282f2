@@ -1,18 +1,22 @@
 
 —
-java:S1104"TMake instance a static final constant or non-public and provide accessors if needed.(ş·Ï8ö´¼ùú1J$a53321ca-dd62-4cf7-abb3-7c0b88599640
+java:S1104"TMake instance a static final constant or non-public and provide accessors if needed.(ş·Ï8ı®Îœû1J$017b058d-972d-4d4c-9d1f-11af7e478e47
 q
-java:S1444".Make this "public static instance" field final(ş·Ï8ö´¼ùú1J$3e8b5bf1-717a-4c00-a375-bec1f1e25d48
+java:S1444".Make this "public static instance" field final(ş·Ï8ı®Îœû1J$30a4ad87-898c-4107-b3e5-280a0cffe88f
 —
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¬ıêèşÿÿÿÿ8ö´¼ùú1J$0aa6fe0e-c0bd-4162-a510-b678262d87a2
+java:S2095J"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Û­íåùÿÿÿÿ8£¯Îœû1J$dbc73373-6497-49c7-bfca-d8d3f4adccae
 —
-java:S20951"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Û­íåùÿÿÿÿ8ö´¼ùú1J$baa68b3e-3a73-4b09-8ccd-d107a57cb703
+java:S2095["OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(å°ƒÅüÿÿÿÿ8£¯Îœû1J$7a270532-d2d6-4d6f-9265-ca078f262281
 —
-java:S2095B"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(å°ƒÅüÿÿÿÿ8Ğ¿ùú1J$744cef5b-b8f2-4388-a1ee-04939e85df36
+java:S20953"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¬ıêèşÿÿÿÿ8£¯Îœû1J$d7efc67d-13d1-498f-a998-e2d3d7aa4654
 —
-java:S2095R"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ËÛÁ¿ûÿÿÿÿ8ÂªÈùú1J$7242ddbb-f4e5-4543-a95c-4ebeeafa2d0b
+java:S2095k"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ËÛÁ¿ûÿÿÿÿ8£¯Îœû1J$a2e88487-8ca3-4584-8b3c-c2096f6ae753
+’
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(‡ç™8£¯Îœû1J$8c1b3813-8075-4807-927e-00be9005b534
+b
+java:S6905"Don't use the query "SELECT *".(‡ç™8²¯Îœû1J$aeb22bf3-768a-4b71-aaa2-9d8388813873
 g
-java:S6905"Don't use the query "SELECT *".(¬ıêèşÿÿÿÿ8…µ¼ùú1J$347526ad-e0e0-4bff-80c5-258ecb20032d
-	java:S100."NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œäì£8…µ¼ùú1J$9b49cd20-d35e-4026-a6fe-5ff64cbe4aab
-•	java:S100?"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç¶”üÿÿÿÿ8…µ¼ùú1J$e2ff5b73-f9b4-48bc-b9f3-0b55bb22645c
-•	java:S100P"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’‡¡áÿÿÿÿÿ8Ú¬Çùú1J$75cf2d28-06f4-4d2c-abb9-e49fc1327901
+java:S69053"Don't use the query "SELECT *".(¬ıêèşÿÿÿÿ8²¯Îœû1J$dc5ae148-792f-484c-996b-d87b39b8dfd3
+	java:S100G"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œäì£8²¯Îœû1J$fa2d8557-a9f5-411e-b0c1-e45b262cf056
+•	java:S100X"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç¶”üÿÿÿÿ8¾¯Îœû1J$4f4bf44e-5240-4c79-a346-5474ce837ded
+•	java:S100i"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’‡¡áÿÿÿÿÿ8¾¯Îœû1J$49626071-7779-4d9a-a825-9162ec3129aa

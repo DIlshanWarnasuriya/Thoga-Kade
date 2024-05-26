@@ -2,7 +2,8 @@ package edu.icet.thogakade.controller.customer;
 
 import edu.icet.thogakade.db.DBConnection;
 import edu.icet.thogakade.model.Customer;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,6 +20,30 @@ public class CustomerController implements CustomerService{
             instance = new CustomerController();
         }
         return instance;
+    }
+
+    public ObservableList<Customer> getAllCustomer() throws SQLException, ClassNotFoundException {
+        ObservableList<Customer> allRecords = FXCollections.observableArrayList();
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement stm = connection.prepareStatement("SELECT * FROM Customer");
+        ResultSet resultSet = stm.executeQuery();
+        while (resultSet.next()) {
+            Customer customer = new Customer(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getDate(4),
+                    resultSet.getDouble(5),
+                    resultSet.getString(6),
+                    resultSet.getString(7),
+                    resultSet.getString(8),
+                    resultSet.getString(9)
+            );
+
+            allRecords.add(customer);
+        }
+        return allRecords;
     }
 
     public Customer searchCustomer(String cusId) throws SQLException, ClassNotFoundException {

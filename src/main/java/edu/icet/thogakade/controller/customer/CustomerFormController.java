@@ -110,35 +110,35 @@ public class CustomerFormController implements Initializable {
         ObservableList<Table1> table1List = FXCollections.observableArrayList();
         ObservableList<Table2> table2List = FXCollections.observableArrayList();
         int count = 0;
+
         try {
-            Connection connection = DBConnection.getInstance().getConnection();
-            PreparedStatement stm = connection.prepareStatement("SELECT * FROM Customer");
-            ResultSet resultSet = stm.executeQuery();
-            while (resultSet.next()) {
-                Table1 table1 = new Table1(
-                        resultSet.getString(1),
-                        resultSet.getString(2),
-                        resultSet.getString(3),
-                        resultSet.getDate(4),
-                        resultSet.getDouble(5)
-                );
-                Table2 table2 = new Table2(
-                        resultSet.getString(1),
-                        resultSet.getString(6),
-                        resultSet.getString(7),
-                        resultSet.getString(8),
-                        resultSet.getString(9)
-                );
-                table1List.add(table1);
-                table2List.add(table2);
-                ++count;
+            ObservableList<Customer> allCustomer = CustomerController.getInstance().getAllCustomer();
+
+            for (Customer customer : allCustomer){
+                table1List.add(new Table1(
+                        customer.getCustID(),
+                        customer.getCustTitle(),
+                        customer.getCustName(),
+                        customer.getDOB(),
+                        customer.getSalary()
+                ));
+
+                table2List.add(new Table2(
+                        customer.getCustID(),
+                        customer.getCustAddress(),
+                        customer.getCity(),
+                        customer.getProvince(),
+                        customer.getPostalCode()
+                ));
+                count++;
             }
+            lblCustomerCount.setText(count + " Customers Have");
             table1.setItems(table1List);
             table2.setItems(table2List);
-            lblCustomerCount.setText(count + " Customers Have");
+
 
         } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            alertView(e.getMessage());
         }
     }
 
@@ -252,10 +252,10 @@ public class CustomerFormController implements Initializable {
     public void DeleteOnAction(ActionEvent actionEvent) {
 
         if (txtCustomerId.getText().isEmpty()) {
-            alertView("Please Enter valid cistomer id");
+            alertView("Please Enter valid customer id");
         } else {
             try {
-                String confirmation = confirmAlert("Are you sure to delete this customer");
+                String confirmation = confirmAlert();
 
                 if (confirmation.equals("OK")) {
 
@@ -273,7 +273,6 @@ public class CustomerFormController implements Initializable {
                 }
             } catch (SQLException | ClassNotFoundException e) {
                 alertView(e.getMessage());
-                System.out.print(e.getMessage());
             }
         }
     }
@@ -297,8 +296,8 @@ public class CustomerFormController implements Initializable {
         alert.showAndWait();
     }
 
-    private String confirmAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.NONE, message, ButtonType.OK, ButtonType.CANCEL);
+    private String confirmAlert() {
+        Alert alert = new Alert(Alert.AlertType.NONE, "Are you sure to delete this customer", ButtonType.OK, ButtonType.CANCEL);
         alert.setTitle("Confirmation alert");
         alert.showAndWait();
         return alert.getResult().getText();
