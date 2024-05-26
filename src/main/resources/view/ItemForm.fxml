@@ -86,39 +86,12 @@
             <Font name="Bauhaus 93" size="35.0" />
          </font>
       </Label>
-      <Line endX="113.39999389648438" layoutX="99.0" layoutY="248.0" startX="-100.0" stroke="#f4f4f4" strokeWidth="3.0" />
       <Line endX="100.0" layoutX="84.0" layoutY="251.0" startX="99.99998474121094" startY="51.00001525878906" stroke="WHITE" visible="false" />
-      <Label fx:id="lblItemCount" layoutX="1051.0" layoutY="50.0" text="00 Items Have" textFill="#2c3e50">
+      <Label fx:id="lblItemCount" layoutX="1035.0" layoutY="50.0" prefHeight="28.0" prefWidth="146.0" textFill="#2c3e50">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnCustomer" layoutX="-4.0" layoutY="195.0" onAction="#customerOnAction" prefHeight="52.0" prefWidth="203.0" style="-fx-background-color: #2c3e50;" text="Customer Form" textFill="#f4f4f4">
-         <font>
-            <Font name="Arial Bold" size="15.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <Line endX="113.39999389648438" layoutX="99.0" layoutY="302.0" startX="-100.0" stroke="#f4f4f4" strokeWidth="3.0" />
-      <JFXButton layoutX="-4.0" layoutY="249.0" prefHeight="52.0" prefWidth="203.0" style="-fx-background-color: #f4f4f4;" text="Item Form" textFill="#2c3e50">
-         <font>
-            <Font name="Arial Bold" size="15.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <Line endX="113.39999389648438" layoutX="99.0" layoutY="356.0" startX="-100.0" stroke="#f4f4f4" strokeWidth="3.0" />
-      <JFXButton layoutX="-3.0" layoutY="303.0" prefHeight="52.0" prefWidth="202.0" style="-fx-background-color: #2c3e50;" text="Order Form" textFill="#f4f4f4">
-         <font>
-            <Font name="Arial Bold" size="15.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
       <JFXTextArea fx:id="txtDescription" layoutX="312.0" layoutY="251.0" prefHeight="93.0" prefWidth="202.0" promptText="Description" unFocusColor="#2c3e50">
          <font>
             <Font name="Arial" size="15.0" />
@@ -144,5 +117,36 @@
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Label>
+      <JFXButton fx:id="btnPlaceOrder" layoutX="-3.0" layoutY="158.6" prefHeight="52.0" prefWidth="202.0" style="-fx-background-color: #2c3e50;" text="Place order" textFill="#f4f4f4" AnchorPane.topAnchor="158.6">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnCustomer" layoutX="-4.0" layoutY="213.8" onAction="#customerOnAction" prefHeight="52.0" prefWidth="203.0" style="-fx-background-color: #2c3e50;" text="Customers" textFill="#f4f4f4" AnchorPane.topAnchor="213.8">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <Line endX="113.39999389648438" layoutX="99.0" layoutY="213.0" startX="-100.0" stroke="#f4f4f4" strokeWidth="3.0" />
+      <JFXButton fx:id="btnItemForm" layoutX="-4.0" layoutY="268.0" prefHeight="52.0" prefWidth="203.0" style="-fx-background-color: #f4f4f4;" text="Items" textFill="#2c3e50">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Line endX="113.39999389648438" layoutX="99.0" layoutY="375.0" startX="-100.0" stroke="#f4f4f4" strokeWidth="3.0" />
+      <JFXButton fx:id="btnOrderForm" layoutX="-3.0" layoutY="322.0" prefHeight="52.0" prefWidth="202.0" style="-fx-background-color: #2c3e50;" text="Orders" textFill="#f4f4f4">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>
