@@ -148,5 +148,18 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <ImageView fitHeight="36.0" fitWidth="41.0" layoutX="51.0" layoutY="655.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/user.png" />
+         </image>
+      </ImageView>
+      <JFXButton alignment="CENTER_RIGHT" layoutX="47.0" layoutY="652.8" onAction="#ExitOnAction" prefHeight="40.0" prefWidth="96.0" text="Exit" textFill="WHITE" AnchorPane.leftAnchor="47.0" AnchorPane.topAnchor="652.8">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>

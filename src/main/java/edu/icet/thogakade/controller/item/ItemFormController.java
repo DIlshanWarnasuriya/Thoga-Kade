@@ -207,4 +207,9 @@ public class ItemFormController implements Initializable {
 
     public void OrdersOnAction(ActionEvent actionEvent) {
     }
+
+    public void ExitOnAction(ActionEvent actionEvent) {
+        Stage stage = (Stage) btnPlaceOrder.getScene().getWindow();
+        stage.close();
+    }
 }

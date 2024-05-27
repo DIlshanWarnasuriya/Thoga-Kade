@@ -322,4 +322,8 @@ public class CustomerFormController implements Initializable {
     }
 
 
+    public void ExitOnAction(ActionEvent actionEvent) {
+        Stage stage = (Stage) btnPlaceOrder.getScene().getWindow();
+        stage.close();
+    }
 }

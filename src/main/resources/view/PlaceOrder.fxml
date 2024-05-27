@@ -8,6 +8,8 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.shape.Line?>
@@ -72,7 +74,7 @@
       <Line endX="113.39999389648438" layoutX="99.0" layoutY="322.0" startX="-100.0" stroke="#f4f4f4" strokeWidth="3.0" />
       <Line endX="113.39999389648438" layoutX="98.0" layoutY="268.0" startX="-100.0" stroke="#f4f4f4" strokeWidth="3.0" />
       <Region layoutX="519.0" layoutY="38.0" prefHeight="40.0" prefWidth="714.0" style="-fx-background-color: #2c3e50;" />
-      <Label layoutX="726.0" layoutY="48.0" text="Date - " textFill="WHITE">
+      <Label layoutX="726.0" layoutY="48.0" text="Date : " textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -82,7 +84,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="915.0" layoutY="48.0" text="Time - " textFill="WHITE">
+      <Label layoutX="915.0" layoutY="48.0" text="Time : " textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -92,7 +94,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="1099.0" layoutY="48.0" text="Order Id - " textFill="WHITE">
+      <Label layoutX="1099.0" layoutY="48.0" text="Order Id : " textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -267,6 +269,19 @@
          </font>
       </Label>
       <Separator layoutX="595.0" layoutY="158.0" orientation="VERTICAL" prefHeight="515.0" prefWidth="5.0" />
+      <ImageView fitHeight="36.0" fitWidth="41.0" layoutX="51.0" layoutY="655.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/user.png" />
+         </image>
+      </ImageView>
+      <JFXButton alignment="CENTER_RIGHT" layoutX="47.0" layoutY="653.0" onAction="#ExitOnAction" prefHeight="40.0" prefWidth="96.0" text="Exit" textFill="WHITE" AnchorPane.leftAnchor="47.0" AnchorPane.topAnchor="653.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
 
    </children>
 </AnchorPane>

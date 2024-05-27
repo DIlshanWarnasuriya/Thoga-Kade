@@ -8,6 +8,9 @@ import edu.icet.thogakade.controller.item.ItemController;
 import edu.icet.thogakade.model.Customer;
 import edu.icet.thogakade.model.Item;
 import edu.icet.thogakade.model.OrderCart;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,9 +25,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -84,7 +92,7 @@ public class PlaceOrderFormController implements Initializable {
     @FXML
     private JFXButton btnOrderForm;
 
-    private ObservableList<OrderCart> orderCart = FXCollections.observableArrayList();
+    private final ObservableList<OrderCart> orderCart = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -94,8 +102,9 @@ public class PlaceOrderFormController implements Initializable {
         colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
-        setAllCustomerId();
-        setAllItemId();
+        setDateAndTime();    // set date and time
+        setAllCustomerId();  // set all customer id to customer id combo box
+        setAllItemId();      // set all item id to item id combo box
 
         cmbCustomerId.getSelectionModel().selectedItemProperty().addListener((observableValue, o, t1) -> {
             try {
@@ -137,19 +146,6 @@ public class PlaceOrderFormController implements Initializable {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }catch (NullPointerException ex){}
         });
-
-
-    }
-
-    private int findIndex(String code){
-        int i = 0;
-        for (OrderCart or : orderCart){
-            if (or.getCode().equals(code)){
-                return i;
-            }
-            i++;
-        }
-        return -1;
     }
 
     private void setAllCustomerId(){
@@ -178,6 +174,7 @@ public class PlaceOrderFormController implements Initializable {
         }
     }
 
+    // Add to cart function
     public void addToCartOnAction(ActionEvent actionEvent) {
 
         try {
@@ -197,9 +194,9 @@ public class PlaceOrderFormController implements Initializable {
                     orderCart.add(new OrderCart(code, description, qty, unitPrice, total));
                     availableQty = availableQty - qty;
                     lblAvailableQty.setText(Integer.toString(availableQty));
+                    txtQty.setText("");
                     loadTableAndNetTotal();
                     setItemCodeInCart();
-                    clearAll();
                 }
             }
         }catch (RuntimeException e){
@@ -222,41 +219,36 @@ public class PlaceOrderFormController implements Initializable {
     private void setItemCodeInCart(){
         ObservableList<String> cartOrderList = FXCollections.observableArrayList();
 
+        cmbItemCodeCart.setValue(null);
+
         for (OrderCart or : orderCart){
             cartOrderList.add(or.getCode());
         }
-
         cmbItemCodeCart.setItems(cartOrderList);
     }
 
-
+    // Delete From cart function
     public void deleteFromCartOnAction(ActionEvent actionEvent) {
         if (cmbItemCodeCart.getValue()==null){
             new Alert(Alert.AlertType.WARNING, "please select Order Id").show();
         }
         else {
-            int code = 0;
-            int reduceQty = 0;
-            for (OrderCart or : orderCart){
-                if (or.getCode().equals(cmbItemCodeCart.getValue().toString())){
-                    reduceQty = or.getQty();
-                    break;
-                }
-                code++;
+            int index = findIndex(cmbItemCodeCart.getValue().toString());
+            int reduceQty = orderCart.get(index).getQty();
+            orderCart.remove(index);
+
+            new Alert(Alert.AlertType.INFORMATION, "Delete from cart Success").show();
+            if (cmbItemCode.getValue()!=null){
+                lblAvailableQty.setText(Integer.toString(Integer.parseInt(lblAvailableQty.getText()) + reduceQty));
             }
-
-            orderCart.remove(code);
-            new Alert(Alert.AlertType.INFORMATION, "Delete Success").show();
             loadTableAndNetTotal();
-            lblAvailableQty.setText(Integer.toString(Integer.parseInt(lblAvailableQty.getText()) + reduceQty));
-
-            cmbItemCodeCart.setValue(null);
-            cmbItemCodeCart.setPromptText("Select Item code");
             setItemCodeInCart();
         }
     }
 
+    // Place Order Function
     public void placeOrderOnAction(ActionEvent actionEvent) {
+
     }
 
     public void clearOnAction(ActionEvent actionEvent) {
@@ -264,9 +256,7 @@ public class PlaceOrderFormController implements Initializable {
     }
     private void clearAll(){
         cmbItemCode.setValue(null);
-
         cmbItemCodeCart.setValue(null);
-
         cmbCustomerId.setValue(null);
         txtQty.setText("");
         lblName.setText("");
@@ -277,9 +267,31 @@ public class PlaceOrderFormController implements Initializable {
         lblPackSie.setText("");
         lblUnitPrice.setText("");
         lblAvailableQty.setText("");
+    }
 
+    private int findIndex(String code){
+        int i = 0;
+        for (OrderCart or : orderCart){
+            if (or.getCode().equals(code)){
+                return i;
+            }
+            i++;
+        }
+        return -1;
+    }
 
+    private void setDateAndTime(){
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        lblDate.setText(format.format(date));
 
+        Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, actionEvent -> {
+            LocalTime time = LocalTime.now();
+            lblTime.setText(time.getHour() + " : " + time.getMinute() + " : " + time.getSecond());
+        }), new KeyFrame(Duration.seconds(1)));
+
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
     }
 
     public void customerOnAction(ActionEvent actionEvent) throws IOException {
@@ -300,5 +312,10 @@ public class PlaceOrderFormController implements Initializable {
 
     public void orderOnAction(ActionEvent actionEvent) {
 
+    }
+
+    public void ExitOnAction(ActionEvent actionEvent) {
+        Stage stage = (Stage) btnCustomer.getScene().getWindow();
+        stage.close();
     }
 }
