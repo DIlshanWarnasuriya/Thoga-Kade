@@ -1,11 +1,35 @@
 
-{
-java:S1104"YMake btnPlaceOrder a static final constant or non-public and provide accessors if needed.(ïĞˆ¦ûÿÿÿÿ8ûÅ¾¯û1
-	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ŸßÔæ8Ò‰Š¯û1J$c1855ae2-98ba-4503-9a88-abc3aec341cf
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦øœ J$e0765beb-2fea-4859-8aa9-bf6db45316fb
+w
+java:S3740"/Provide the parametrized type for this generic.(Ê¾€ûüÿÿÿÿ8ÎøÔû1J$96b60d30-951c-4859-b43e-301a61f30c64
+w
+java:S3740"/Provide the parametrized type for this generic.(…ó®«úÿÿÿÿ8Á²øÔû1J$7ab343cb-fc43-48d6-bfcb-12a819cf23b0
+r
+java:S3740"/Provide the parametrized type for this generic.(èİÀ¤8ÈÚøÔû1J$23f3ef72-aefc-4999-9ea3-e712eecf474b
+r
+java:S3740"/Provide the parametrized type for this generic.( å½8·ùøÔû1J$76124ce5-c302-48d7-84e0-40f6b9e1d7c2
+r
+java:S3740"/Provide the parametrized type for this generic.(Ï¶ş8º–ùÔû1J$7a144ef8-ee90-4b1d-b055-a6d63daccc40
+r
+java:S3740!"/Provide the parametrized type for this generic.(Ù–ªæ8š¸ùÔû1J$2501fa62-55a3-4457-bbdf-614e90059646
+w
+java:S3740)"/Provide the parametrized type for this generic.(èµ×Ôÿÿÿÿÿ8æœûÔû1J$0df886f3-5c95-4b80-a736-53077787c1b6
+w
+java:S37403"/Provide the parametrized type for this generic.(¤Á¦ÿúÿÿÿÿ8Ç®üÔû1J$e499b6e7-a1da-4810-929e-ddbd0fca73b3
+w
+java:S3740A"/Provide the parametrized type for this generic.(ˆ¹¢’üÿÿÿÿ8ÕİıÔû1J$cff2aa7a-ce6e-470e-9f38-63f9055fa425
+	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ŸßÔæ8Ò‰Š¯û1J$1498a2c6-4832-4574-ae34-5d84bb2a94cc
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦øœ J$2e2e5758-89f5-4b49-b875-8a116d467f4a
 É
-java:S1186("€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô±ÈÏùÿÿÿÿ8±°˜¯û1J$49e21dc6-4f91-48c9-ae86-858364a57bed
+java:S1186\"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô±ÈÏùÿÿÿÿ8§ÕûÔû1J$452df903-babc-4c28-b10c-658fad4545a9
+Ä
+java:S1186`"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(²Ï¦Ş8½ËşÔû1J$f50bd9ae-6dc4-453c-973a-599d4ee30f7b
+Ä
+java:S1186c"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µ•Ã‚8‘êşÔû1J$1d68ff1f-0702-4eb3-85da-54dc65755ab0
+Ä
+java:S1186f"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷´¤ù8Â‚ÿÔû1J$048e883d-5890-4f20-bfb7-abb0774c2604
+É
+java:S1186i"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ä“‹ñùÿÿÿÿ8æœÿÔû1J$043ff2f3-3c27-45e1-9f5c-a48894100251
 t
-java:S1172"2Remove this unused method parameter "actionEvent".(ÑÈ÷W8é¡”¯û1J$e4578b70-147d-408d-9965-d0cafad86afa
+java:S1172L"2Remove this unused method parameter "actionEvent".(ÑÈ÷W8âìŠÕû1J$95c8d74a-f1c0-40c5-b30c-74c8da7754ce
 t
-java:S1172 "2Remove this unused method parameter "actionEvent".(ÀüÊy8ô¢–¯û1J$cbd06f9b-4e11-4d76-8384-70104ac50880
+java:S1172T"2Remove this unused method parameter "actionEvent".(ÀüÊy8íìŠÕû1J$c5086fa2-15ec-4cb5-b80f-3d683bb78dda
