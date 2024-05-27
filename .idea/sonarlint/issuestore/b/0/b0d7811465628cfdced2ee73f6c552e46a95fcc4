@@ -1,0 +1,9 @@
+
+k	java:S116"QRename this field "CustID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åŞ½‚ıÿÿÿÿ
+i	java:S116"TRename this field "CustTitle" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½¹Ç“
+h	java:S116"SRename this field "CustName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áŠé
+c	java:S116"NRename this field "DOB" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğà»º
+k	java:S116"VRename this field "CustAddress" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Í¥
+d	java:S116"ORename this field "City" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÑùÛ
+g	java:S116"SRename this field "Province" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾Ç”a
+j	java:S116"URename this field "PostalCode" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ïõì
