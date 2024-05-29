@@ -26,7 +26,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -39,6 +38,8 @@ import java.util.ResourceBundle;
 public class PlaceOrderFormController implements Initializable {
 
 
+    @FXML
+    private JFXTextField txtDiscount;
     @FXML
     private TableView table;
     @FXML
@@ -92,7 +93,7 @@ public class PlaceOrderFormController implements Initializable {
     @FXML
     private JFXButton btnOrderForm;
 
-    private final ObservableList<OrderCart> orderCart = FXCollections.observableArrayList();
+    private ObservableList<OrderCart> orderCart = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -105,6 +106,7 @@ public class PlaceOrderFormController implements Initializable {
         setDateAndTime();    // set date and time
         setAllCustomerId();  // set all customer id to customer id combo box
         setAllItemId();      // set all item id to item id combo box
+        generateId();
 
         cmbCustomerId.getSelectionModel().selectedItemProperty().addListener((observableValue, o, t1) -> {
             try {
@@ -116,8 +118,8 @@ public class PlaceOrderFormController implements Initializable {
 
             } catch (SQLException | ClassNotFoundException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            } catch (NullPointerException ex) {
             }
-            catch (NullPointerException ex){}
         });
 
         cmbItemCode.getSelectionModel().selectedItemProperty().addListener((observableValue, o, t1) -> {
@@ -127,15 +129,13 @@ public class PlaceOrderFormController implements Initializable {
                 lblPackSie.setText(item.getSize());
                 lblUnitPrice.setText(Double.toString(item.getPrice()));
 
-                if (orderCart==null){
+                if (orderCart.isEmpty()) {
                     lblAvailableQty.setText(Integer.toString(item.getQty()));
-                }
-                else{
+                } else {
                     int i = findIndex(cmbItemCode.getValue().toString());
-                    if (i==-1){
+                    if (i == -1) {
                         lblAvailableQty.setText(Integer.toString(item.getQty()));
-                    }
-                    else {
+                    } else {
                         OrderCart orderCart1 = orderCart.get(i);
                         int cartQty = orderCart1.getQty();
                         int qty = item.getQty() - cartQty;
@@ -144,11 +144,12 @@ public class PlaceOrderFormController implements Initializable {
                 }
             } catch (SQLException | ClassNotFoundException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-            }catch (NullPointerException ex){}
+            } catch (NullPointerException ex) {
+            }
         });
     }
 
-    private void setAllCustomerId(){
+    private void setAllCustomerId() {
         try {
             ObservableList<String> allIds = FXCollections.observableArrayList();
             ObservableList<Customer> allCustomer = CustomerController.getInstance().getAllCustomer();
@@ -161,7 +162,7 @@ public class PlaceOrderFormController implements Initializable {
         }
     }
 
-    private void setAllItemId(){
+    private void setAllItemId() {
         try {
             ObservableList<String> itemIds = FXCollections.observableArrayList();
             ObservableList<Item> items = ItemController.getInstance().getAllItems();
@@ -199,29 +200,29 @@ public class PlaceOrderFormController implements Initializable {
                     setItemCodeInCart();
                 }
             }
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             new Alert(Alert.AlertType.WARNING, "please select customer, Item and enter valid Qty").show();
         }
     }
 
-    private void loadTableAndNetTotal(){
-        if (orderCart != null){
+    private void loadTableAndNetTotal() {
+        if (!orderCart.isEmpty()) {
             table.setItems(orderCart);
 
             double netTotal = 0;
-            for (OrderCart or : orderCart){
+            for (OrderCart or : orderCart) {
                 netTotal += or.getTotal();
             }
-            lblTotal.setText(netTotal+"/=");
+            lblTotal.setText(netTotal + "/=");
         }
     }
 
-    private void setItemCodeInCart(){
+    private void setItemCodeInCart() {
         ObservableList<String> cartOrderList = FXCollections.observableArrayList();
 
         cmbItemCodeCart.setValue(null);
 
-        for (OrderCart or : orderCart){
+        for (OrderCart or : orderCart) {
             cartOrderList.add(or.getCode());
         }
         cmbItemCodeCart.setItems(cartOrderList);
@@ -229,19 +230,17 @@ public class PlaceOrderFormController implements Initializable {
 
     // Delete From cart function
     public void deleteFromCartOnAction(ActionEvent actionEvent) {
-        if (cmbItemCodeCart.getValue()==null){
+        if (cmbItemCodeCart.getValue() == null) {
             new Alert(Alert.AlertType.WARNING, "please select Order Id").show();
-        }
-        else {
+        } else {
             int index = findIndex(cmbItemCodeCart.getValue().toString());
             int reduceQty = orderCart.get(index).getQty();
             orderCart.remove(index);
 
             new Alert(Alert.AlertType.INFORMATION, "Delete from cart Success").show();
-            if (cmbItemCode.getValue()!=null){
+            if (cmbItemCode.getValue() != null) {
                 lblAvailableQty.setText(Integer.toString(Integer.parseInt(lblAvailableQty.getText()) + reduceQty));
             }
-            loadTableAndNetTotal();
             setItemCodeInCart();
         }
     }
@@ -249,12 +248,41 @@ public class PlaceOrderFormController implements Initializable {
     // Place Order Function
     public void placeOrderOnAction(ActionEvent actionEvent) {
 
+        if (orderCart.isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "No items in cart. please add items to cart").show();
+        } else if (cmbCustomerId.getValue() == null) {
+            new Alert(Alert.AlertType.WARNING, "Please select customer id").show();
+        } else {
+            try {
+                int discount = Integer.parseInt(txtDiscount.getText());
+                boolean res = PlaceOrderController.getInstance().saveOrder(lblOrderId.getText(), cmbCustomerId.getValue().toString(), orderCart, discount);
+                if (res) {
+                    new Alert(Alert.AlertType.INFORMATION, "Order place successful").show();
+                    generateId();
+                    orderCart.remove(0, orderCart.toArray().length);
+                    setItemCodeInCart();
+                    txtDiscount.setText("");
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Order place fail").show();
+                }
+            } catch (RuntimeException e) {
+                new Alert(Alert.AlertType.ERROR, "Enter valid discount").show();
+            } catch (SQLException | ClassNotFoundException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            }
+        }
+    }
+
+    private void generateId() {
+        try {
+            int count = PlaceOrderController.getInstance().generateNewOrderId();
+            lblOrderId.setText(String.format("D%03d", (count + 1)));
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void clearOnAction(ActionEvent actionEvent) {
-        clearAll();
-    }
-    private void clearAll(){
         cmbItemCode.setValue(null);
         cmbItemCodeCart.setValue(null);
         cmbCustomerId.setValue(null);
@@ -269,10 +297,10 @@ public class PlaceOrderFormController implements Initializable {
         lblAvailableQty.setText("");
     }
 
-    private int findIndex(String code){
+    private int findIndex(String code) {
         int i = 0;
-        for (OrderCart or : orderCart){
-            if (or.getCode().equals(code)){
+        for (OrderCart or : orderCart) {
+            if (or.getCode().equals(code)) {
                 return i;
             }
             i++;
@@ -280,7 +308,7 @@ public class PlaceOrderFormController implements Initializable {
         return -1;
     }
 
-    private void setDateAndTime(){
+    private void setDateAndTime() {
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         lblDate.setText(format.format(date));

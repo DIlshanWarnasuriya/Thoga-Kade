@@ -74,32 +74,32 @@
       <Line endX="113.39999389648438" layoutX="99.0" layoutY="322.0" startX="-100.0" stroke="#f4f4f4" strokeWidth="3.0" />
       <Line endX="113.39999389648438" layoutX="98.0" layoutY="268.0" startX="-100.0" stroke="#f4f4f4" strokeWidth="3.0" />
       <Region layoutX="519.0" layoutY="38.0" prefHeight="40.0" prefWidth="714.0" style="-fx-background-color: #2c3e50;" />
-      <Label layoutX="726.0" layoutY="48.0" text="Date : " textFill="WHITE">
+      <Label layoutX="709.0" layoutY="48.0" text="Date : " textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblDate" layoutX="771.0" layoutY="48.0" prefHeight="20.0" prefWidth="127.0" textFill="WHITE">
+      <Label fx:id="lblDate" layoutX="754.0" layoutY="48.0" prefHeight="20.0" prefWidth="127.0" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="915.0" layoutY="48.0" text="Time : " textFill="WHITE">
+      <Label layoutX="898.0" layoutY="48.0" text="Time : " textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblTime" layoutX="960.0" layoutY="48.0" prefHeight="20.0" prefWidth="118.0" textFill="WHITE">
+      <Label fx:id="lblTime" layoutX="943.0" layoutY="48.0" prefHeight="20.0" prefWidth="118.0" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="1099.0" layoutY="48.0" text="Order Id : " textFill="WHITE">
+      <Label layoutX="1078.0" layoutY="48.0" text="Order Id : " textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblOrderId" layoutX="1168.0" layoutY="48.0" prefHeight="20.0" prefWidth="54.0" textFill="WHITE">
+      <Label fx:id="lblOrderId" layoutX="1147.0" layoutY="48.0" prefHeight="20.0" prefWidth="54.0" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -237,10 +237,13 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1036.0" layoutY="625.0" onAction="#placeOrderOnAction" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #27ae60;" text="Place Order" textFill="WHITE">
+      <JFXButton layoutX="1071.0" layoutY="625.0" onAction="#placeOrderOnAction" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #27ae60;" text="Place Order" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <JFXButton layoutX="1031.0" layoutY="171.0" onAction="#deleteFromCartOnAction" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #c0392b;" text="Delete From cart" textFill="WHITE">
          <font>
@@ -248,17 +251,17 @@
          </font>
       </JFXButton>
       <JFXComboBox fx:id="cmbItemCodeCart" layoutX="869.0" layoutY="171.0" prefHeight="26.0" prefWidth="138.0" promptText="Select Item code" />
-      <Label layoutX="722.0" layoutY="630.0" text="Net Total">
+      <Label layoutX="683.0" layoutY="630.0" text="Net Total">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="lblTotal" layoutX="821.0" layoutY="630.0" prefHeight="26.0" prefWidth="138.0" text="0/=">
+      <Label fx:id="lblTotal" layoutX="782.0" layoutY="630.0" prefHeight="26.0" prefWidth="83.0" text="0/=">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="804.0" layoutY="631.0" text=":">
+      <Label layoutX="765.0" layoutY="631.0" text=":">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -282,6 +285,17 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <JFXTextField fx:id="txtDiscount" layoutX="1012.0" layoutY="625.0" prefHeight="26.0" prefWidth="42.0" />
+      <Label layoutX="942.0" layoutY="634.0" text="Discount  : ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="1039.0" layoutY="628.0" text="\%">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
 
    </children>
 </AnchorPane>
