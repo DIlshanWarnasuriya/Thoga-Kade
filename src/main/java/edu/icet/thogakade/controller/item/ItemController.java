@@ -2,8 +2,10 @@ package edu.icet.thogakade.controller.item;
 
 import edu.icet.thogakade.crudUtil.CrudUtil;
 import edu.icet.thogakade.model.Item;
+import edu.icet.thogakade.model.OrderDetails;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -43,10 +45,10 @@ public class ItemController implements ItemService {
     }
 
     @Override
-    public Item searchItem(String id) throws SQLException, ClassNotFoundException {
+    public Item searchItem(String code) throws SQLException, ClassNotFoundException {
 
         String sql = "select * from Item where ItemCode = ?";
-        ResultSet resultSet = CrudUtil.execute(sql, id);
+        ResultSet resultSet = CrudUtil.execute(sql, code);
 
         if (resultSet.next()) {
 
@@ -90,8 +92,21 @@ public class ItemController implements ItemService {
     }
 
     @Override
-    public Boolean deleteItem(String id) throws SQLException, ClassNotFoundException {
+    public Boolean deleteItem(String code) throws SQLException, ClassNotFoundException {
         String sql = "delete from item where ItemCode=?";
-        return CrudUtil.execute(sql, id);
+        return CrudUtil.execute(sql, code);
+    }
+
+    public boolean updateStock(ObservableList<OrderDetails> list) throws SQLException, ClassNotFoundException {
+
+        String sql = "update item set QtyOnHand=QtyOnHand-? where ItemCode=?";
+        for (OrderDetails or : list) {
+
+            boolean isUpdateItem = CrudUtil.execute(sql, or.getQty(), or.getItemCode());
+            if (!isUpdateItem) {
+                return false;
+            }
+        }
+        return true;
     }
 }

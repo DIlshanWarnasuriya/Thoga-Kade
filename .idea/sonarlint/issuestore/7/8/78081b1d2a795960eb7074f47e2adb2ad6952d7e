@@ -1,0 +1,39 @@
+
+	java:S112¢"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8‚‹ÍÄü1J$ef1e6c40-86fc-4999-b14d-e0077f2451a2
+w
+java:S3740*"/Provide the parametrized type for this generic.(Ê¾€ûüÿÿÿÿ8‚‹ÍÄü1J$71f5f560-9a50-459e-942d-a66b870a11af
+w
+java:S3740,"/Provide the parametrized type for this generic.(…ó®«úÿÿÿÿ8‚‹ÍÄü1J$2ca8e285-3c66-46cd-bfaf-b4b874ef632d
+r
+java:S3740."/Provide the parametrized type for this generic.(èİÀ¤8‚‹ÍÄü1J$6bdc7ec9-1fcf-415f-95f7-bef0fd776833
+r
+java:S37400"/Provide the parametrized type for this generic.( å½8‚‹ÍÄü1J$2937638b-fa61-4c07-9af4-a7887486f7d8
+r
+java:S37402"/Provide the parametrized type for this generic.(Ï¶ş8‚‹ÍÄü1J$f9446c27-b46a-4128-bbc7-0943fc549385
+r
+java:S37404"/Provide the parametrized type for this generic.(Ù–ªæ8‚‹ÍÄü1J$0f30f716-5de0-4c88-93db-854cce4171ef
+w
+java:S3740<"/Provide the parametrized type for this generic.(èµ×Ôÿÿÿÿÿ8‚‹ÍÄü1J$0f596551-15ab-4d21-8e91-32e23288e42d
+w
+java:S3740F"/Provide the parametrized type for this generic.(¤Á¦ÿúÿÿÿÿ8‚‹ÍÄü1J$3608e19a-1f16-4136-b6e2-0bf5f8ed5e72
+w
+java:S3740T"/Provide the parametrized type for this generic.(ˆ¹¢’üÿÿÿÿ8‚‹ÍÄü1J$028e4a95-8ab8-46a1-bf55-7449c170a0b3
+Ê
+java:S1186Ş"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô±ÈÏùÿÿÿÿ8¨‹ÍÄü1J$b34a2c8c-8aee-46dd-9085-a6891f07cc69
+p	java:S108w")Either remove or fill this block of code.(‰•’şÿÿÿÿ8º‹ÍÄü1J$01399aed-280a-4d8c-b913-23696dbe768d
+q	java:S108‘")Either remove or fill this block of code.(‰•’şÿÿÿÿ8À‹ÍÄü1J$61a32049-551c-4cec-804c-f7d0ecad4131
+v
+java:S1172±"2Remove this unused method parameter "actionEvent".(²Ï¦Ş8Å‹ÍÄü1J$f017e754-5377-4664-bd4e-e5c4198bbb3e
+{
+java:S1172æ"2Remove this unused method parameter "actionEvent".(Ä“‹ñùÿÿÿÿ8É‹ÍÄü1J$3307a0e5-aae8-4c24-abbe-a83428acd5dc
+v
+java:S1172÷"2Remove this unused method parameter "actionEvent".(÷´¤ù8Ï‹ÍÄü1J$67576a7d-53c6-4a95-a0bb-3daa7958e726
+v
+java:S1172¦"2Remove this unused method parameter "actionEvent".(µ•Ã‚8Ù‹ÍÄü1J$cde1bfbf-fb4b-4cdf-be6e-3c79c82e134e
+u
+java:S1172Î"2Remove this unused method parameter "actionEvent".(ÑÈ÷W8ÊÁïÄü1J$943a4535-f06b-42ca-8d32-625f5345e42a
+u
+java:S1172Ö"2Remove this unused method parameter "actionEvent".(ÀüÊy8ÊÁïÄü1J$6ec43c5d-c95b-4424-add8-25ab9c7e008b
+–	java:S100â"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÜ¸ıÿÿÿÿ8ÊÁïÄü1J$f9cb5ea3-95fc-4560-b07a-7c9deb96cf75
+{
+java:S1172â"2Remove this unused method parameter "actionEvent".(ÜÜ¸ıÿÿÿÿ8ÊÁïÄü1J$cd5c1dae-d1d5-4e75-8d86-42ce09b1c88b

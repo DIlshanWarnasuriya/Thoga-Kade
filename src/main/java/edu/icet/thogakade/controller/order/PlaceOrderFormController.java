@@ -1,13 +1,11 @@
-package edu.icet.thogakade.controller.placeOrder;
+package edu.icet.thogakade.controller.order;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import edu.icet.thogakade.controller.customer.CustomerController;
 import edu.icet.thogakade.controller.item.ItemController;
-import edu.icet.thogakade.model.Customer;
-import edu.icet.thogakade.model.Item;
-import edu.icet.thogakade.model.OrderCart;
+import edu.icet.thogakade.model.*;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -254,14 +252,25 @@ public class PlaceOrderFormController implements Initializable {
             new Alert(Alert.AlertType.WARNING, "Please select customer id").show();
         } else {
             try {
+                String orderId = lblOrderId.getText();
+                String date = lblDate.getText();
+                String customerId = cmbCustomerId.getValue().toString();
+                ObservableList<OrderDetails> list = FXCollections.observableArrayList();
                 int discount = Integer.parseInt(txtDiscount.getText());
-                boolean res = PlaceOrderController.getInstance().saveOrder(lblOrderId.getText(), cmbCustomerId.getValue().toString(), orderCart, discount);
+                for (OrderCart or : orderCart){
+                    list.add(new OrderDetails(orderId, or.getCode(), or.getQty(), discount));
+                }
+
+                Order order = new Order(orderId, date, customerId, list);
+
+                boolean res = OrderController.getInstance().saveOrder(order);
+
                 if (res) {
                     new Alert(Alert.AlertType.INFORMATION, "Order place successful").show();
                     generateId();
                     orderCart.remove(0, orderCart.toArray().length);
                     setItemCodeInCart();
-                    txtDiscount.setText("");
+                    txtDiscount.setText("0");
                 } else {
                     new Alert(Alert.AlertType.ERROR, "Order place fail").show();
                 }
@@ -275,7 +284,7 @@ public class PlaceOrderFormController implements Initializable {
 
     private void generateId() {
         try {
-            int count = PlaceOrderController.getInstance().generateNewOrderId();
+            int count = OrderController.getInstance().generateNewOrderId();
             lblOrderId.setText(String.format("D%03d", (count + 1)));
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);

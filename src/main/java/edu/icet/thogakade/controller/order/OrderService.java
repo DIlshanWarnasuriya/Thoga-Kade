@@ -1,7 +1,7 @@
-package edu.icet.thogakade.controller.placeOrder;
+package edu.icet.thogakade.controller.order;
 
 import java.sql.SQLException;
 
-public interface PlaceOrderService {
+public interface OrderService {
     int generateNewOrderId() throws SQLException, ClassNotFoundException;
 }
