@@ -1,13 +1,3 @@
 
-—
-java:S1104"TMake instance a static final constant or non-public and provide accessors if needed.(Ï¢‰á8ËĞ˜Õü1J$d23c6a97-f253-49e2-8fb9-33d9a16cef33
-q
-java:S1444".Make this "public static instance" field final(Ï¢‰á8ËĞ˜Õü1J$ed86f40b-6c9b-42fb-a83b-0eddae8e1dff
-
-java:S2259;"HA "NullPointerException" could be thrown; "connection" is nullable here.(Øîğ€ıÿÿÿÿ8öóšÕü1J$051512d2-5635-4bab-91cf-bf29ad25d50c
-}
-java:S1128":Remove this unused import 'edu.icet.thogakade.model.Item'.(®ù›ä8’›Õü1J$7ce87279-00f6-414c-979a-e8c0eeabc6d3
-Š
-java:S1128"BRemove this unused import 'edu.icet.thogakade.model.OrderDetails'.(ˆÂÔÔùÿÿÿÿ8’›Õü1J$c63de8f9-3c95-4ee9-a551-8b6224836f1f
-
-java:S1128"7Remove this unused import 'java.sql.PreparedStatement'.(òÄ™ƒÿÿÿÿÿ8’›Õü1J$451b8095-54b6-4a81-a37f-97460f56f243
+Ü
+java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(åœÑ‡8§ÀŒ§ı1J$ca4d3e33-7fa4-4a6f-80a6-2fbf3837d592

@@ -2,6 +2,7 @@ package edu.icet.thogakade.bo.custom;
 
 import edu.icet.thogakade.bo.SuperBo;
 import edu.icet.thogakade.dto.Customer;
+import edu.icet.thogakade.dto.OrderDetails;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;

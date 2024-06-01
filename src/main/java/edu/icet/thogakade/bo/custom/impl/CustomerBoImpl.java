@@ -4,6 +4,7 @@ import edu.icet.thogakade.bo.custom.CustomerBo;
 import edu.icet.thogakade.dao.custom.CustomerDao;
 import edu.icet.thogakade.dao.DaoFactory;
 import edu.icet.thogakade.dto.Customer;
+import edu.icet.thogakade.dto.OrderDetails;
 import edu.icet.thogakade.entity.CustomerEntity;
 import edu.icet.thogakade.util.DaoType;
 import javafx.collections.FXCollections;
@@ -45,6 +46,4 @@ public class CustomerBoImpl implements CustomerBo {
         }
         return customersList;
     }
-
-
 }

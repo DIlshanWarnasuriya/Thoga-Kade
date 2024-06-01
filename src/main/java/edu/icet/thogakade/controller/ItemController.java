@@ -1,9 +1,12 @@
-package edu.icet.thogakade.controller.item;
+package edu.icet.thogakade.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import edu.icet.thogakade.bo.BoFactory;
+import edu.icet.thogakade.bo.custom.ItemBo;
 import edu.icet.thogakade.dto.Item;
+import edu.icet.thogakade.util.BoType;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +23,7 @@ import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class ItemFormController implements Initializable {
+public class ItemController implements Initializable {
 
     @FXML
     private JFXButton btnOrderForm;
@@ -55,6 +58,8 @@ public class ItemFormController implements Initializable {
     @FXML
     private TableColumn colQty;
 
+    private final ItemBo itemBo = BoFactory.getInstance().getBo(BoType.ITEM);
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
@@ -68,7 +73,7 @@ public class ItemFormController implements Initializable {
 
     private void loadTables() {
         try {
-            ObservableList<Item> allItems = ItemController.getInstance().getAllItems();
+            ObservableList<Item> allItems = itemBo.getAllItem();
             table.setItems(allItems);
             lblItemCount.setText(allItems.toArray().length + " Items Have");
 
@@ -80,7 +85,7 @@ public class ItemFormController implements Initializable {
     public void searchOnAction(ActionEvent actionEvent) {
         String code = txtCode.getText();
         try {
-            Item item = ItemController.getInstance().searchItem(code);
+            Item item = itemBo.searchItem(code);
 
             if (item != null) {
                 alertView("Item Found");
@@ -106,7 +111,7 @@ public class ItemFormController implements Initializable {
                 new Alert(Alert.AlertType.WARNING, "Fill all textBoxes").show();
             } else {
                 Item item = new Item(txtCode.getText(), txtDescription.getText(), txtSize.getText(), price, qty);
-                boolean res = ItemController.getInstance().saveItem(item);
+                boolean res = itemBo.saveItem(item);
 
                 if (res) {
                     alertView("Item added Successful");
@@ -132,7 +137,7 @@ public class ItemFormController implements Initializable {
                 new Alert(Alert.AlertType.WARNING, "Fill all textBoxes").show();
             } else {
                 Item item = new Item(txtCode.getText(), txtDescription.getText(), txtSize.getText(), price, qty);
-                boolean res = ItemController.getInstance().updateItem(item);
+                boolean res = itemBo.updateItem(item, txtCode.getText());
 
                 if (res) {
                     alertView("Item Update Successful");
@@ -153,7 +158,7 @@ public class ItemFormController implements Initializable {
         try {
             String confirmation = confirmAlert();
             if (confirmation.equals("OK")) {
-                boolean res = ItemController.getInstance().deleteItem(txtCode.getText());
+                boolean res = itemBo.deleteItem(txtCode.getText());
                 if (res) {
                     alertView("Item Delete Successful");
                     loadTables();

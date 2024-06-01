@@ -5,7 +5,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import edu.icet.thogakade.bo.BoFactory;
 import edu.icet.thogakade.bo.custom.CustomerBo;
-import edu.icet.thogakade.controller.item.ItemController;
+import edu.icet.thogakade.bo.custom.ItemBo;
 import edu.icet.thogakade.dto.*;
 import edu.icet.thogakade.util.BoType;
 import javafx.animation.Animation;
@@ -96,6 +96,7 @@ public class PlaceOrderFormController implements Initializable {
     private ObservableList<OrderCart> orderCart = FXCollections.observableArrayList();
 
     private final CustomerBo customerBo = BoFactory.getInstance().getBo(BoType.CUSTOMER);
+    private final ItemBo itemBo = BoFactory.getInstance().getBo(BoType.ITEM);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -126,7 +127,7 @@ public class PlaceOrderFormController implements Initializable {
 
         cmbItemCode.getSelectionModel().selectedItemProperty().addListener((observableValue, o, t1) -> {
             try {
-                Item item = ItemController.getInstance().searchItem(t1.toString());
+                Item item = itemBo.searchItem(t1.toString());
                 lblDescription.setText(item.getDescription());
                 lblPackSie.setText(item.getSize());
                 lblUnitPrice.setText(Double.toString(item.getPrice()));
@@ -167,7 +168,7 @@ public class PlaceOrderFormController implements Initializable {
     private void setAllItemId() {
         try {
             ObservableList<String> itemIds = FXCollections.observableArrayList();
-            ObservableList<Item> items = ItemController.getInstance().getAllItems();
+            ObservableList<Item> items = itemBo.getAllItem();
 
             items.forEach(customer -> itemIds.add(customer.getCode()));
             cmbItemCode.setItems(itemIds);

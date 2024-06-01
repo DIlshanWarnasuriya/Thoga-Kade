@@ -1,6 +1,8 @@
 package edu.icet.thogakade.controller.order;
 
-import edu.icet.thogakade.controller.item.ItemController;
+import edu.icet.thogakade.bo.BoFactory;
+import edu.icet.thogakade.bo.custom.ItemBo;
+import edu.icet.thogakade.util.BoType;
 import edu.icet.thogakade.util.CrudUtil;
 import edu.icet.thogakade.db.DBConnection;
 import edu.icet.thogakade.dto.Order;
@@ -11,7 +13,9 @@ import java.sql.SQLException;
 
 public class OrderController implements OrderService {
 
-    public static OrderController instance;
+    private static OrderController instance;
+
+    private ItemBo itemBo = BoFactory.getInstance().getBo(BoType.ITEM);
 
     private OrderController() {
     }
@@ -41,7 +45,7 @@ public class OrderController implements OrderService {
                 boolean isAddOrderDetails = OrderDetailController.getInstance().saveOrderDetails(order.getList());
 
                 if (isAddOrderDetails) {
-                    boolean isUpdateItems = ItemController.getInstance().updateStock(order.getList());
+                    boolean isUpdateItems = itemBo.updateStock(order.getList());
 
                     if (isUpdateItems) {
                         connection.setAutoCommit(true);
