@@ -3,7 +3,7 @@ package edu.icet.thogakade.controller.item;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import edu.icet.thogakade.model.Item;
+import edu.icet.thogakade.dto.Item;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

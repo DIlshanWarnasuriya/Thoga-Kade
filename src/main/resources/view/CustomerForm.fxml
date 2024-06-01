@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="730.0" prefWidth="1288.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.thogakade.controller.customer.CustomerFormController">
+<AnchorPane prefHeight="730.0" prefWidth="1288.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.thogakade.controller.CustomerController">
    <children>
       <Region layoutX="-78.0" layoutY="15.0" prefHeight="86.0" prefWidth="714.0" style="-fx-background-radius: 50; -fx-background-color: #2c3e50;" />
       <Label layoutX="297.0" layoutY="40.0" text="Customer Form" textFill="WHITE">
@@ -179,7 +179,7 @@
             <Image url="@../img/user.png" />
          </image>
       </ImageView>
-      <JFXButton alignment="CENTER_RIGHT" layoutX="46.2" layoutY="652.8" onAction="#ExitOnAction" prefHeight="40.0" prefWidth="96.0" text="Exit" textFill="WHITE" AnchorPane.leftAnchor="47.0" AnchorPane.topAnchor="652.8">
+      <JFXButton alignment="CENTER_RIGHT" layoutX="46.2" layoutY="652.8" onAction="#exitOnAction" prefHeight="40.0" prefWidth="96.0" text="Exit" textFill="WHITE" AnchorPane.leftAnchor="47.0" AnchorPane.topAnchor="652.8">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

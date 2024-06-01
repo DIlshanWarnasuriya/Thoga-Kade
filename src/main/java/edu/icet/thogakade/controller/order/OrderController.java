@@ -1,14 +1,11 @@
 package edu.icet.thogakade.controller.order;
 
 import edu.icet.thogakade.controller.item.ItemController;
-import edu.icet.thogakade.crudUtil.CrudUtil;
+import edu.icet.thogakade.util.CrudUtil;
 import edu.icet.thogakade.db.DBConnection;
-import edu.icet.thogakade.model.Item;
-import edu.icet.thogakade.model.Order;
-import edu.icet.thogakade.model.OrderDetails;
+import edu.icet.thogakade.dto.Order;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

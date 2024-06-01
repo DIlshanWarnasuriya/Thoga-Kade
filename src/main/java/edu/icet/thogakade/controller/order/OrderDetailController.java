@@ -1,7 +1,7 @@
 package edu.icet.thogakade.controller.order;
 
-import edu.icet.thogakade.crudUtil.CrudUtil;
-import edu.icet.thogakade.model.OrderDetails;
+import edu.icet.thogakade.util.CrudUtil;
+import edu.icet.thogakade.dto.OrderDetails;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;

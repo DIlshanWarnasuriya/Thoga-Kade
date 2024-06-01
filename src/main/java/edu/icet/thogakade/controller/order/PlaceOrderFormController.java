@@ -3,9 +3,11 @@ package edu.icet.thogakade.controller.order;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import edu.icet.thogakade.controller.customer.CustomerController;
+import edu.icet.thogakade.bo.BoFactory;
+import edu.icet.thogakade.bo.custom.CustomerBo;
 import edu.icet.thogakade.controller.item.ItemController;
-import edu.icet.thogakade.model.*;
+import edu.icet.thogakade.dto.*;
+import edu.icet.thogakade.util.BoType;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -93,6 +95,8 @@ public class PlaceOrderFormController implements Initializable {
 
     private ObservableList<OrderCart> orderCart = FXCollections.observableArrayList();
 
+    private final CustomerBo customerBo = BoFactory.getInstance().getBo(BoType.CUSTOMER);
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
@@ -108,7 +112,7 @@ public class PlaceOrderFormController implements Initializable {
 
         cmbCustomerId.getSelectionModel().selectedItemProperty().addListener((observableValue, o, t1) -> {
             try {
-                Customer customer = CustomerController.getInstance().searchCustomer(t1.toString());
+                Customer customer = customerBo.searchCustomer(t1.toString());
                 lblName.setText(customer.getCustTitle() + " " + customer.getCustName());
                 lblAddress.setText(customer.getCustAddress());
                 lblSalary.setText(Double.toString(customer.getSalary()));
@@ -150,7 +154,7 @@ public class PlaceOrderFormController implements Initializable {
     private void setAllCustomerId() {
         try {
             ObservableList<String> allIds = FXCollections.observableArrayList();
-            ObservableList<Customer> allCustomer = CustomerController.getInstance().getAllCustomer();
+            ObservableList<Customer> allCustomer = customerBo.getAllCustomer();
 
             allCustomer.forEach(customer -> allIds.add(customer.getCustID()));
             cmbCustomerId.setItems(allIds);

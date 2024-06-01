@@ -1,6 +1,6 @@
 package edu.icet.thogakade.controller.item;
 
-import edu.icet.thogakade.model.Item;
+import edu.icet.thogakade.dto.Item;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;

@@ -1,8 +1,8 @@
 package edu.icet.thogakade.controller.item;
 
-import edu.icet.thogakade.crudUtil.CrudUtil;
-import edu.icet.thogakade.model.Item;
-import edu.icet.thogakade.model.OrderDetails;
+import edu.icet.thogakade.util.CrudUtil;
+import edu.icet.thogakade.dto.Item;
+import edu.icet.thogakade.dto.OrderDetails;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
