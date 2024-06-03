@@ -279,9 +279,7 @@ public class PlaceOrderFormController implements Initializable {
                 } else {
                     new Alert(Alert.AlertType.ERROR, "Order place fail").show();
                 }
-            } catch (RuntimeException e) {
-                new Alert(Alert.AlertType.ERROR, "Enter valid discount").show();
-            } catch (SQLException | ClassNotFoundException e) {
+            }  catch (SQLException | ClassNotFoundException | RuntimeException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         }
