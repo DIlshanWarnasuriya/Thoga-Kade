@@ -29,11 +29,11 @@
       </JFXTextField>
       <TableView fx:id="table" layoutX="651.0" layoutY="171.0" prefHeight="478.0" prefWidth="528.0" style="-fx-view-order: descending;">
         <columns>
-          <TableColumn fx:id="colCode" prefWidth="64.00003051757812" text="Code" />
+          <TableColumn fx:id="colCode" prefWidth="64.00003051757812" style="-fx-alignment: CENTER;" text="Code" />
           <TableColumn fx:id="colDescription" prefWidth="196.7999267578125" text="Description" />
-            <TableColumn fx:id="colSize" prefWidth="90.4000244140625" text="Pack Size" />
-            <TableColumn fx:id="colPrice" prefWidth="91.2000732421875" text="Unit Price" />
-            <TableColumn fx:id="colQty" prefWidth="68.0" text="Qty" />
+            <TableColumn fx:id="colSize" prefWidth="90.4000244140625" style="-fx-alignment: CENTER;" text="Pack Size" />
+            <TableColumn fx:id="colPrice" prefWidth="99.199951171875" style="-fx-alignment: CENTER_RIGHT; -fx-padding: 0 15 0 0;" text="    Unit Price" />
+            <TableColumn fx:id="colQty" prefWidth="60.800048828125" style="-fx-alignment: CENTER;" text="Qty" />
         </columns>
       </TableView>
       <JFXButton ellipsisString="" layoutX="468.0" layoutY="191.0" onAction="#searchOnAction" prefHeight="23.0" prefWidth="21.0" style="-fx-background-color: #2980b9; -fx-background-radius: 50;" textFill="WHITE">

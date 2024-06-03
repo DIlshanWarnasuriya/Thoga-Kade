@@ -70,20 +70,20 @@
       </JFXTextField>
       <TableView fx:id="table1" layoutX="651.0" layoutY="147.0" prefHeight="246.0" prefWidth="528.0" style="-fx-view-order: descending;">
         <columns>
-          <TableColumn fx:id="colCustomerId1" prefWidth="64.00003051757812" text="id" />
-          <TableColumn fx:id="colTitle" prefWidth="76.0" text="Title" />
-            <TableColumn fx:id="colName" prefWidth="156.7999267578125" text="Name" />
-            <TableColumn fx:id="colDOB" prefWidth="108.800048828125" text="DOB" />
-            <TableColumn fx:id="colSalary" prefWidth="103.20004882812498" text="Salary" />
+          <TableColumn fx:id="colCustomerId1" prefWidth="64.00003051757812" style="-fx-alignment: CENTER;" text="id" />
+          <TableColumn fx:id="colTitle" prefWidth="76.0" style="-fx-alignment: CENTER;" text="Title" />
+            <TableColumn fx:id="colName" prefWidth="156.7999267578125" style="-fx-alignment: CENTER;" text="Name" />
+            <TableColumn fx:id="colDOB" prefWidth="108.800048828125" style="-fx-alignment: CENTER;" text="DOB" />
+            <TableColumn fx:id="colSalary" prefWidth="103.20004882812498" style="-fx-alignment: CENTER_RIGHT; -fx-padding: 0 15 0 0;" text="      Salary" />
         </columns>
       </TableView>
       <TableView fx:id="table2" layoutX="651.0" layoutY="416.0" prefHeight="246.0" prefWidth="528.0">
          <columns>
-            <TableColumn fx:id="colCustomerId2" prefWidth="62.40008544921875" text="id" />
+            <TableColumn fx:id="colCustomerId2" prefWidth="62.40008544921875" style="-fx-alignment: CENTER;" text="id" />
             <TableColumn fx:id="colAddress" prefWidth="172.800048828125" text="Address" />
-            <TableColumn fx:id="colCity" prefWidth="100.7999267578125" text="City" />
-            <TableColumn fx:id="colProvince" prefWidth="111.2000732421875" text="Province" />
-            <TableColumn fx:id="colPostalCode" prefWidth="63.199951171875" text="P.Code" />
+            <TableColumn fx:id="colCity" prefWidth="100.7999267578125" style="-fx-alignment: CENTER;" text="City" />
+            <TableColumn fx:id="colProvince" prefWidth="111.2000732421875" style="-fx-alignment: CENTER;" text="Province" />
+            <TableColumn fx:id="colPostalCode" prefWidth="63.199951171875" style="-fx-alignment: CENTER;" text="P.Code" />
          </columns>
       </TableView>
       <JFXButton ellipsisString="" layoutX="468.0" layoutY="166.0" onAction="#searchOnAction" prefHeight="23.0" prefWidth="21.0" style="-fx-background-color: #2980b9; -fx-background-radius: 50;" textFill="WHITE">

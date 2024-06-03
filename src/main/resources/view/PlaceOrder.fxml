@@ -37,11 +37,11 @@
 
       <TableView fx:id="table" layoutX="679.0" layoutY="228.0" prefHeight="368.0" prefWidth="528.0" style="-fx-view-order: descending;">
          <columns>
-            <TableColumn fx:id="colCode" prefWidth="103.199951171875" text="Item Code" />
-            <TableColumn fx:id="colDescription" prefWidth="157.60009765625" text="Description" />
-            <TableColumn fx:id="colQty" prefWidth="60.8001708984375" text="Qty" />
-            <TableColumn fx:id="colPrice" prefWidth="96.0001220703125" text="Unit Price" />
-            <TableColumn fx:id="colTotal" prefWidth="94.4000244140625" text="Total" />
+            <TableColumn fx:id="colCode" prefWidth="83.2000732421875" style="-fx-alignment: CENTER;" text="Item Code" />
+            <TableColumn fx:id="colDescription" prefWidth="187.2000732421875" text="Description" />
+            <TableColumn fx:id="colQty" prefWidth="63.199951171875" style="-fx-alignment: CENTER;" text="Qty" />
+            <TableColumn fx:id="colPrice" prefWidth="85.5999755859375" style="-fx-alignment: CENTER_RIGHT; -fx-padding: 0 15 0 0;" text="    Unit Price" />
+            <TableColumn fx:id="colTotal" prefWidth="100.0001220703125" style="-fx-alignment: CENTER_RIGHT; -fx-padding: 0 15 0 0;" text="     Total" />
          </columns>
       </TableView>
       <JFXButton fx:id="btnPlaceOrder" layoutX="-4.0" layoutY="158.0" prefHeight="52.0" prefWidth="203.0" style="-fx-background-color: #f4f4f4;" text="Place order" textFill="#2c3e50">
